@@ -1,0 +1,20 @@
+{
+  "name": "vaslkaar",
+  "version": "1.0.0",
+  "description": "AI-Powered Freelancer OS — Work. Track. Earn.",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "freelancer",
+    "portfolio",
+    "ai",
+    "behance",
+    "case-study",
+    "invoice"
+  ],
+  "author": "Javeria Farhan",
+  "license": "MIT"
+}
