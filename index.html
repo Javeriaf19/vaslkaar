@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VASLKAAR — Your work, connected.</title>
+  <meta name="description" content="AI-Powered Freelancer OS — Auto-generate Behance case studies, LinkedIn posts, and SEO packages from your design work." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vasl-dark': '#1A1A1A',
+            'vasl-gold': '#C9A84C',
+            'vasl-gold-hover': '#B8963F',
+            'vasl-bg': '#FAFAFA',
+            'vasl-success': '#2D9E5F',
+            'vasl-warning': '#E8A020',
+            'vasl-error': '#D04040',
+            'vasl-gray': '#6B7280',
+            'vasl-light-gray': '#E5E7EB',
+            'vasl-card': '#FFFFFF',
+          },
+          fontFamily: {
+            'heading': ['"Inter"', 'system-ui', 'sans-serif'],
+            'body': ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            'card': '12px',
+            'input': '8px',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="font-body text-vasl-dark bg-vasl-bg antialiased">
+
+  <!-- ============================================================ -->
+  <!-- TOAST NOTIFICATION -->
+  <!-- ============================================================ -->
+  <div id="toast" class="fixed top-6 right-6 z-[100] transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-vasl-dark text-white px-5 py-3 rounded-card shadow-lg flex items-center gap-3 font-body">
+      <i data-lucide="check-circle" class="w-5 h-5 text-vasl-success"></i>
+      <span id="toast-message">Copied!</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SCREEN 1: LANDING PAGE -->
+  <!-- ============================================================ -->
+  <section id="screen-landing" class="screen">
+    <!-- Hero Section -->
+    <div class="min-h-screen bg-vasl-dark flex flex-col">
+      <!-- Nav -->
+      <nav class="flex items-center justify-between px-6 md:px-12 py-5">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="Vaslkaar" class="h-9" />
+        </div>
+        <a href="#" onclick="navigateTo('dna'); return false;" class="text-vasl-gold hover:text-vasl-gold-hover font-heading font-semibold text-sm tracking-wide transition-colors">
+          GET STARTED →
+        </a>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="flex-1 flex flex-col items-center justify-center px-6 text-center -mt-16">
+        <div class="hero-badge inline-flex items-center gap-2 bg-white/10 text-white/80 text-xs font-heading font-medium px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-vasl-gold"></i>
+          AI-Powered Freelancer OS
+        </div>
+
+        <h1 class="font-heading font-black text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05] mb-6 tracking-tight">
+          Your work,<br />
+          <span class="text-vasl-gold">connected.</span>
+        </h1>
+
+        <p class="font-body text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
+          Upload your designs. Get polished Behance case studies, LinkedIn posts, and SEO packages — in 30 seconds. Not 3 hours.
+        </p>
+
+        <button onclick="navigateTo('dna')" class="btn-gold group text-base md:text-lg px-8 py-4 font-heading font-semibold">
+          Get Started Free
+          <i data-lucide="arrow-right" class="w-5 h-5 inline-block ml-2 transition-transform group-hover:translate-x-1"></i>
+        </button>
+
+        <p class="text-white/30 text-sm mt-5 font-body">No sign-up needed · 100% free during beta</p>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="bg-vasl-bg py-20 md:py-28 px-6">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-vasl-gold font-heading font-semibold text-sm tracking-widest uppercase text-center mb-3">HOW IT WORKS</p>
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-vasl-dark text-center mb-16">Three steps. Six minutes. Three hours saved.</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Step 1 -->
+          <div class="bg-white rounded-card p-8 shadow-sm hover:shadow-md transition-shadow border border-vasl-light-gray/50">
+            <div class="w-12 h-12 bg-vasl-gold/10 rounded-card flex items-center justify-center mb-5">
+              <i data-lucide="upload" class="w-6 h-6 text-vasl-gold"></i>
+            </div>
+            <div class="text-vasl-gold font-heading font-bold text-sm mb-2">STEP 01</div>
+            <h3 class="font-heading font-bold text-xl mb-3">Upload Your Work</h3>
+            <p class="text-vasl-gray font-body leading-relaxed">Drop your screenshots, add a quick description, pick your tools. Takes 2 minutes.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white rounded-card p-8 shadow-sm hover:shadow-md transition-shadow border border-vasl-light-gray/50">
+            <div class="w-12 h-12 bg-vasl-gold/10 rounded-card flex items-center justify-center mb-5">
+              <i data-lucide="wand-2" class="w-6 h-6 text-vasl-gold"></i>
+            </div>
+            <div class="text-vasl-gold font-heading font-bold text-sm mb-2">STEP 02</div>
+            <h3 class="font-heading font-bold text-xl mb-3">AI Does The Rest</h3>
+            <p class="text-vasl-gray font-body leading-relaxed">Our AI writes your Behance case study, LinkedIn posts, and SEO tags in 30 seconds flat.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white rounded-card p-8 shadow-sm hover:shadow-md transition-shadow border border-vasl-light-gray/50">
+            <div class="w-12 h-12 bg-vasl-gold/10 rounded-card flex items-center justify-center mb-5">
+              <i data-lucide="copy" class="w-6 h-6 text-vasl-gold"></i>
+            </div>
+            <div class="text-vasl-gold font-heading font-bold text-sm mb-2">STEP 03</div>
+            <h3 class="font-heading font-bold text-xl mb-3">Copy & Publish</h3>
+            <p class="text-vasl-gray font-body leading-relaxed">One-click copy everything. Paste to Behance, share on LinkedIn. You're done.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Preview -->
+    <div class="bg-white py-20 md:py-28 px-6 border-t border-vasl-light-gray/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-vasl-gold font-heading font-semibold text-sm tracking-widest uppercase text-center mb-3">WHAT YOU GET</p>
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-vasl-dark text-center mb-16">Everything your portfolio needs. Automatically.</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start gap-4 p-6 rounded-card hover:bg-vasl-bg/50 transition-colors">
+            <div class="w-10 h-10 bg-vasl-dark rounded-input flex items-center justify-center flex-shrink-0">
+              <i data-lucide="file-text" class="w-5 h-5 text-vasl-gold"></i>
+            </div>
+            <div>
+              <h4 class="font-heading font-semibold text-lg mb-1">Behance Case Studies</h4>
+              <p class="text-vasl-gray font-body text-sm leading-relaxed">Full project write-up: challenge, process, solution, tags — ready to paste.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 rounded-card hover:bg-vasl-bg/50 transition-colors">
+            <div class="w-10 h-10 bg-vasl-dark rounded-input flex items-center justify-center flex-shrink-0">
+              <i data-lucide="linkedin" class="w-5 h-5 text-vasl-gold"></i>
+            </div>
+            <div>
+              <h4 class="font-heading font-semibold text-lg mb-1">LinkedIn Posts</h4>
+              <p class="text-vasl-gray font-body text-sm leading-relaxed">3 variations — short, medium, long — with hashtags and story hooks.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 rounded-card hover:bg-vasl-bg/50 transition-colors">
+            <div class="w-10 h-10 bg-vasl-dark rounded-input flex items-center justify-center flex-shrink-0">
+              <i data-lucide="hash" class="w-5 h-5 text-vasl-gold"></i>
+            </div>
+            <div>
+              <h4 class="font-heading font-semibold text-lg mb-1">SEO Package</h4>
+              <p class="text-vasl-gray font-body text-sm leading-relaxed">Hashtags, alt texts, meta descriptions, and keywords — ranked by relevance.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 rounded-card hover:bg-vasl-bg/50 transition-colors">
+            <div class="w-10 h-10 bg-vasl-dark rounded-input flex items-center justify-center flex-shrink-0">
+              <i data-lucide="palette" class="w-5 h-5 text-vasl-gold"></i>
+            </div>
+            <div>
+              <h4 class="font-heading font-semibold text-lg mb-1">Design DNA</h4>
+              <p class="text-vasl-gray font-body text-sm leading-relaxed">Set your style once. AI matches your tone, aesthetic, and voice — every time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-vasl-dark py-20 md:py-28 px-6">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-6">Stop spending hours on portfolio updates.</h2>
+        <p class="text-white/60 font-body text-lg mb-10 leading-relaxed">Join hundreds of freelancers who document their work in minutes, not hours.</p>
+        <button onclick="navigateTo('dna')" class="btn-gold text-lg px-10 py-4 font-heading font-semibold">
+          Start For Free →
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-vasl-dark border-t border-white/10 py-8 px-6">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="Vaslkaar" class="h-7 opacity-60" />
+        </div>
+        <p class="text-white/30 text-sm font-body">Built with ❤️ in Pakistan 🇵🇰 · Pixel Forge AI Hackathon 2026</p>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SCREEN 2: DESIGN DNA SETUP -->
+  <!-- ============================================================ -->
+  <section id="screen-dna" class="screen hidden">
+    <div class="min-h-screen bg-vasl-bg flex flex-col">
+      <!-- Top Bar -->
+      <div class="flex items-center justify-between px-6 md:px-12 py-5 bg-white border-b border-vasl-light-gray/50">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="Vaslkaar" class="h-8" />
+        </div>
+        <span class="text-vasl-gray text-sm font-body">Step 1 of 1 · One-time setup</span>
+      </div>
+
+      <!-- DNA Form -->
+      <div class="flex-1 flex items-start justify-center px-4 py-12 md:py-16">
+        <div class="w-full max-w-2xl">
+          <div class="text-center mb-10">
+            <div class="w-14 h-14 bg-vasl-gold/10 rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="dna" class="w-7 h-7 text-vasl-gold"></i>
+            </div>
+            <h1 class="font-heading font-bold text-3xl md:text-4xl mb-3">Set Up Your Design DNA</h1>
+            <p class="text-vasl-gray font-body text-lg">Tell us about your creative style. AI will use this to match your voice — forever.</p>
+          </div>
+
+          <form id="dna-form" class="space-y-8">
+            <!-- Sample Designs Upload -->
+            <div>
+              <label class="block font-heading font-semibold text-sm mb-3">
+                Upload 3–5 Sample Designs <span class="text-vasl-gray font-normal">(optional)</span>
+              </label>
+              <div id="dna-upload-zone" class="upload-zone rounded-card border-2 border-dashed border-vasl-light-gray hover:border-vasl-gold/50 bg-white p-8 text-center cursor-pointer transition-colors">
+                <i data-lucide="image-plus" class="w-10 h-10 text-vasl-gray/40 mx-auto mb-3"></i>
+                <p class="text-vasl-gray font-body text-sm">Drop images here or <span class="text-vasl-gold font-medium">browse</span></p>
+                <p class="text-vasl-gray/50 font-body text-xs mt-1">PNG, JPG, WEBP · Max 5 files</p>
+                <input type="file" id="dna-file-input" accept="image/*" multiple class="hidden" />
+              </div>
+              <div id="dna-preview-grid" class="grid grid-cols-5 gap-3 mt-3"></div>
+            </div>
+
+            <!-- Aesthetic Tags -->
+            <div>
+              <label class="block font-heading font-semibold text-sm mb-3">Your Aesthetic</label>
+              <p class="text-vasl-gray font-body text-sm mb-4">Select all that describe your style.</p>
+              <div id="aesthetic-tags" class="flex flex-wrap gap-2">
+                <button type="button" class="tag-chip" data-tag="Minimal">Minimal</button>
+                <button type="button" class="tag-chip" data-tag="Bold">Bold</button>
+                <button type="button" class="tag-chip" data-tag="Editorial">Editorial</button>
+                <button type="button" class="tag-chip" data-tag="Playful">Playful</button>
+                <button type="button" class="tag-chip" data-tag="Luxury">Luxury</button>
+                <button type="button" class="tag-chip" data-tag="Corporate">Corporate</button>
+                <button type="button" class="tag-chip" data-tag="Street">Street</button>
+                <button type="button" class="tag-chip" data-tag="Retro">Retro</button>
+                <button type="button" class="tag-chip" data-tag="Futuristic">Futuristic</button>
+                <button type="button" class="tag-chip" data-tag="Organic">Organic</button>
+              </div>
+            </div>
+
+            <!-- Designer Inspirations -->
+            <div>
+              <label for="dna-inspirations" class="block font-heading font-semibold text-sm mb-3">
+                Designers You Admire <span class="text-vasl-gray font-normal">(2–3 names)</span>
+              </label>
+              <input type="text" id="dna-inspirations" placeholder="e.g. Jessica Walsh, Tobias van Schneider, Paula Scher"
+                class="input-field w-full" />
+            </div>
+
+            <!-- Style Description -->
+            <div>
+              <label for="dna-description" class="block font-heading font-semibold text-sm mb-3">
+                Describe Your Style <span class="text-vasl-gray font-normal">(optional)</span>
+              </label>
+              <textarea id="dna-description" rows="3" placeholder="e.g. I love clean layouts with bold typography and warm color palettes. My work tends to feel modern but approachable..."
+                class="input-field w-full resize-none"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="flex flex-col items-center gap-4 pt-4">
+              <button type="submit" class="btn-gold w-full md:w-auto text-base px-10 py-4 font-heading font-semibold">
+                <i data-lucide="sparkles" class="w-5 h-5 inline-block mr-2"></i>
+                Save My Design DNA
+              </button>
+              <button type="button" onclick="skipDna()" class="text-vasl-gray hover:text-vasl-dark text-sm font-body transition-colors">
+                Skip for now →
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- APP SHELL (Screens 3–7) — Sidebar + Main Content -->
+  <!-- ============================================================ -->
+  <div id="app-shell" class="hidden min-h-screen">
+
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-vasl-dark z-40 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300">
+      <!-- Logo -->
+      <div class="flex items-center gap-3 px-6 py-6 border-b border-white/10">
+        <img src="assets/logo.png" alt="Vaslkaar" class="h-8" />
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="flex-1 py-6 px-3 space-y-1">
+        <a href="#" class="sidebar-link active" data-screen="dashboard" onclick="navigateTo('dashboard'); return false;">
+          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="sidebar-link" data-screen="new-project" onclick="navigateTo('new-project'); return false;">
+          <i data-lucide="plus-circle" class="w-5 h-5"></i>
+          <span>New Project</span>
+        </a>
+        <a href="#" class="sidebar-link" data-screen="projects" onclick="navigateTo('projects'); return false;">
+          <i data-lucide="folder-open" class="w-5 h-5"></i>
+          <span>My Projects</span>
+        </a>
+
+        <div class="pt-6 pb-2 px-3">
+          <p class="text-white/30 text-xs font-heading font-semibold tracking-wider uppercase">Settings</p>
+        </div>
+        <a href="#" class="sidebar-link" data-screen="dna-settings" onclick="navigateTo('dna-settings'); return false;">
+          <i data-lucide="dna" class="w-5 h-5"></i>
+          <span>Design DNA</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="px-6 py-5 border-t border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-vasl-gold/20 rounded-full flex items-center justify-center">
+            <i data-lucide="user" class="w-4 h-4 text-vasl-gold"></i>
+          </div>
+          <div>
+            <p id="sidebar-user-name" class="text-white text-sm font-heading font-medium">Creative</p>
+            <p class="text-white/40 text-xs font-body">Free Plan</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="md:ml-64 min-h-screen">
+      <!-- Mobile Top Bar -->
+      <header class="md:hidden flex items-center justify-between px-4 py-4 bg-white border-b border-vasl-light-gray/50 sticky top-0 z-20">
+        <button onclick="toggleSidebar()" class="w-10 h-10 flex items-center justify-center rounded-input hover:bg-vasl-bg transition-colors">
+          <i data-lucide="menu" class="w-5 h-5 text-vasl-dark"></i>
+        </button>
+        <img src="assets/logo.png" alt="Vaslkaar" class="h-7" />
+        <div class="w-10"></div>
+      </header>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN 3: DASHBOARD -->
+      <!-- ====================================================== -->
+      <section id="screen-dashboard" class="app-screen p-6 md:p-10">
+        <!-- Header -->
+        <div class="mb-10">
+          <p class="text-vasl-gray font-body text-sm mb-1" id="dashboard-greeting">Good evening 👋</p>
+          <h1 class="font-heading font-bold text-2xl md:text-3xl">Dashboard</h1>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div class="bg-white rounded-card p-5 border border-vasl-light-gray/50">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="folder" class="w-4 h-4 text-vasl-gold"></i>
+              <span class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide">Projects</span>
+            </div>
+            <p id="stat-projects" class="font-heading font-bold text-2xl">0</p>
+          </div>
+          <div class="bg-white rounded-card p-5 border border-vasl-light-gray/50">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="file-check" class="w-4 h-4 text-vasl-success"></i>
+              <span class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide">Published</span>
+            </div>
+            <p id="stat-published" class="font-heading font-bold text-2xl">0</p>
+          </div>
+          <div class="bg-white rounded-card p-5 border border-vasl-light-gray/50">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="clock" class="w-4 h-4 text-vasl-warning"></i>
+              <span class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide">Drafts</span>
+            </div>
+            <p id="stat-drafts" class="font-heading font-bold text-2xl">0</p>
+          </div>
+          <div class="bg-white rounded-card p-5 border border-vasl-light-gray/50">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="timer" class="w-4 h-4 text-vasl-gold"></i>
+              <span class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide">Hours Saved</span>
+            </div>
+            <p id="stat-hours" class="font-heading font-bold text-2xl">0</p>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <button onclick="navigateTo('new-project')" class="btn-gold py-4 px-8 font-heading font-semibold text-base flex items-center justify-center gap-2">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+            New Project
+          </button>
+          <button onclick="navigateTo('projects')" class="btn-outline py-4 px-8 font-heading font-semibold text-base flex items-center justify-center gap-2">
+            <i data-lucide="folder-open" class="w-5 h-5"></i>
+            View All Projects
+          </button>
+        </div>
+
+        <!-- Recent Projects -->
+        <div>
+          <h2 class="font-heading font-semibold text-lg mb-5">Recent Projects</h2>
+          <div id="dashboard-projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Populated by JS -->
+          </div>
+          <!-- Empty State -->
+          <div id="dashboard-empty" class="bg-white rounded-card border border-vasl-light-gray/50 p-12 text-center">
+            <div class="w-16 h-16 bg-vasl-bg rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="folder-plus" class="w-8 h-8 text-vasl-gray/40"></i>
+            </div>
+            <h3 class="font-heading font-semibold text-lg mb-2">No projects yet</h3>
+            <p class="text-vasl-gray font-body text-sm mb-6 max-w-sm mx-auto">Upload your first design and let AI create a polished case study in 30 seconds.</p>
+            <button onclick="navigateTo('new-project')" class="btn-gold py-3 px-6 font-heading font-semibold text-sm inline-flex items-center gap-2">
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              Create First Project
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN 4: NEW PROJECT -->
+      <!-- ====================================================== -->
+      <section id="screen-new-project" class="app-screen hidden p-6 md:p-10">
+        <div class="max-w-2xl">
+          <!-- Header -->
+          <div class="mb-8">
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-2">New Project</h1>
+            <p class="text-vasl-gray font-body">Upload your work, add details, and let AI do the writing.</p>
+          </div>
+
+          <form id="project-form" class="space-y-8">
+            <!-- Step 1: Upload Screenshots -->
+            <div>
+              <label class="block font-heading font-semibold text-sm mb-3">
+                <span class="inline-flex items-center gap-2">
+                  <span class="w-6 h-6 bg-vasl-gold text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                  Upload Screenshots
+                </span>
+              </label>
+              <div id="project-upload-zone" class="upload-zone rounded-card border-2 border-dashed border-vasl-light-gray hover:border-vasl-gold/50 bg-white p-10 text-center cursor-pointer transition-all">
+                <i data-lucide="cloud-upload" class="w-12 h-12 text-vasl-gray/30 mx-auto mb-4"></i>
+                <p class="font-body text-vasl-dark font-medium mb-1">Drop your design screenshots here</p>
+                <p class="text-vasl-gray font-body text-sm">or <span class="text-vasl-gold font-medium cursor-pointer">browse files</span></p>
+                <p class="text-vasl-gray/50 font-body text-xs mt-2">PNG, JPG, WEBP · Up to 10 files</p>
+                <input type="file" id="project-file-input" accept="image/*" multiple class="hidden" />
+              </div>
+              <div id="project-preview-grid" class="grid grid-cols-4 sm:grid-cols-5 gap-3 mt-3"></div>
+              <p id="upload-error" class="text-vasl-error text-sm mt-2 hidden font-body">Please upload at least one image.</p>
+            </div>
+
+            <!-- Step 2: Project Details -->
+            <div class="space-y-5">
+              <label class="block font-heading font-semibold text-sm mb-1">
+                <span class="inline-flex items-center gap-2">
+                  <span class="w-6 h-6 bg-vasl-gold text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                  Project Details
+                </span>
+              </label>
+
+              <!-- Project Name -->
+              <div>
+                <label for="project-name" class="block text-sm font-body font-medium text-vasl-gray mb-1.5">
+                  Project Name <span class="text-vasl-gray/50">(optional — AI can suggest)</span>
+                </label>
+                <input type="text" id="project-name" placeholder="e.g. Brand Identity for Local Café"
+                  class="input-field w-full" />
+              </div>
+
+              <!-- Client Type -->
+              <div>
+                <label for="client-type" class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Client Type</label>
+                <select id="client-type" class="input-field w-full">
+                  <option value="">Select client type...</option>
+                  <option value="brand">Brand / Business</option>
+                  <option value="personal">Personal Project</option>
+                  <option value="student">Student / Academic</option>
+                  <option value="agency">Agency Work</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- Description -->
+              <div>
+                <label for="project-description" class="block text-sm font-body font-medium text-vasl-gray mb-1.5">
+                  Brief Description <span class="text-vasl-error">*</span>
+                </label>
+                <textarea id="project-description" rows="3" required
+                  placeholder="What was the goal of this project? What did the client need? (2–3 sentences is perfect)"
+                  class="input-field w-full resize-none"></textarea>
+                <p id="description-error" class="text-vasl-error text-sm mt-1 hidden font-body">Please add a brief description.</p>
+              </div>
+
+              <!-- Tools Used -->
+              <div>
+                <label class="block text-sm font-body font-medium text-vasl-gray mb-3">Tools Used</label>
+                <div id="tools-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="Figma" class="hidden" />
+                    <span class="tool-label">Figma</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="Photoshop" class="hidden" />
+                    <span class="tool-label">Photoshop</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="Illustrator" class="hidden" />
+                    <span class="tool-label">Illustrator</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="Canva" class="hidden" />
+                    <span class="tool-label">Canva</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="Premiere Pro" class="hidden" />
+                    <span class="tool-label">Premiere Pro</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="CapCut" class="hidden" />
+                    <span class="tool-label">CapCut</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="After Effects" class="hidden" />
+                    <span class="tool-label">After Effects</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="InDesign" class="hidden" />
+                    <span class="tool-label">InDesign</span>
+                  </label>
+                  <label class="tool-checkbox">
+                    <input type="checkbox" value="Blender" class="hidden" />
+                    <span class="tool-label">Blender</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Generate -->
+            <div class="pt-4">
+              <button type="submit" id="generate-btn" class="btn-gold w-full py-4 font-heading font-semibold text-base flex items-center justify-center gap-3">
+                <span class="inline-flex items-center gap-2">
+                  <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                  Generate ✨
+                </span>
+              </button>
+              <p class="text-center text-vasl-gray/60 text-xs font-body mt-3">AI will create your Behance case study, LinkedIn posts, and SEO package</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN 5: GENERATING (Loading State) -->
+      <!-- ====================================================== -->
+      <section id="screen-generating" class="app-screen hidden p-6 md:p-10">
+        <div class="flex flex-col items-center justify-center min-h-[70vh]">
+          <!-- Spinner -->
+          <div class="relative mb-8">
+            <div class="w-20 h-20 border-4 border-vasl-light-gray rounded-full"></div>
+            <div class="w-20 h-20 border-4 border-vasl-gold border-t-transparent rounded-full absolute top-0 left-0 animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i data-lucide="sparkles" class="w-7 h-7 text-vasl-gold"></i>
+            </div>
+          </div>
+
+          <h2 class="font-heading font-bold text-2xl mb-3">Creating Your Case Study</h2>
+          <p id="generating-status" class="text-vasl-gray font-body text-lg mb-8 transition-opacity duration-300">Analyzing your design...</p>
+
+          <!-- Progress Steps -->
+          <div class="w-full max-w-xs space-y-3">
+            <div class="gen-step flex items-center gap-3" data-step="1">
+              <div class="w-6 h-6 rounded-full border-2 border-vasl-light-gray flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-3 h-3 text-white hidden"></i>
+              </div>
+              <span class="text-sm font-body text-vasl-gray">Analyzing your design</span>
+            </div>
+            <div class="gen-step flex items-center gap-3" data-step="2">
+              <div class="w-6 h-6 rounded-full border-2 border-vasl-light-gray flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-3 h-3 text-white hidden"></i>
+              </div>
+              <span class="text-sm font-body text-vasl-gray">Writing Behance case study</span>
+            </div>
+            <div class="gen-step flex items-center gap-3" data-step="3">
+              <div class="w-6 h-6 rounded-full border-2 border-vasl-light-gray flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-3 h-3 text-white hidden"></i>
+              </div>
+              <span class="text-sm font-body text-vasl-gray">Crafting LinkedIn posts</span>
+            </div>
+            <div class="gen-step flex items-center gap-3" data-step="4">
+              <div class="w-6 h-6 rounded-full border-2 border-vasl-light-gray flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-3 h-3 text-white hidden"></i>
+              </div>
+              <span class="text-sm font-body text-vasl-gray">Generating SEO package</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN 6: RESULTS -->
+      <!-- ====================================================== -->
+      <section id="screen-results" class="app-screen hidden p-6 md:p-10">
+        <div class="max-w-3xl">
+          <!-- Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+              <h1 id="results-title" class="font-heading font-bold text-2xl md:text-3xl mb-1">Your Case Study is Ready!</h1>
+              <p class="text-vasl-gray font-body text-sm">Copy the content below and paste it to your platforms.</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="regenerateProject()" class="btn-outline py-2.5 px-4 text-sm font-heading font-medium flex items-center gap-2">
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                Regenerate
+              </button>
+              <button onclick="saveCurrentProject()" id="save-project-btn" class="btn-gold py-2.5 px-4 text-sm font-heading font-medium flex items-center gap-2">
+                <i data-lucide="save" class="w-4 h-4"></i>
+                Save
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="flex gap-1 bg-white rounded-card p-1 border border-vasl-light-gray/50 mb-6">
+            <button class="result-tab active" data-tab="behance" onclick="switchResultTab('behance')">
+              <i data-lucide="pen-tool" class="w-4 h-4"></i>
+              Behance
+            </button>
+            <button class="result-tab" data-tab="linkedin" onclick="switchResultTab('linkedin')">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              LinkedIn
+            </button>
+            <button class="result-tab" data-tab="seo" onclick="switchResultTab('seo')">
+              <i data-lucide="hash" class="w-4 h-4"></i>
+              SEO
+            </button>
+          </div>
+
+          <!-- Tab Content: Behance -->
+          <div id="tab-behance" class="tab-content space-y-4">
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">PROJECT TITLE</h3>
+                <button class="copy-btn" onclick="copyText('behance-title')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="behance-title" class="font-heading font-bold text-xl"></p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">THE CHALLENGE</h3>
+                <button class="copy-btn" onclick="copyText('behance-challenge')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="behance-challenge" class="font-body leading-relaxed"></p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">THE PROCESS</h3>
+                <button class="copy-btn" onclick="copyText('behance-process')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="behance-process" class="font-body leading-relaxed"></p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">THE SOLUTION</h3>
+                <button class="copy-btn" onclick="copyText('behance-solution')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="behance-solution" class="font-body leading-relaxed"></p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">FULL DESCRIPTION</h3>
+                <button class="copy-btn" onclick="copyText('behance-full')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="behance-full" class="font-body leading-relaxed"></p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">TOOLS & TAGS</h3>
+                <button class="copy-btn" onclick="copyText('behance-tags')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <div id="behance-tags" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Copy All Behance -->
+            <button onclick="copyAllBehance()" class="btn-gold w-full py-3.5 font-heading font-semibold text-sm flex items-center justify-center gap-2">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+              Copy All Behance Content
+            </button>
+          </div>
+
+          <!-- Tab Content: LinkedIn -->
+          <div id="tab-linkedin" class="tab-content hidden space-y-4">
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">SHORT VERSION <span class="text-vasl-gray/50 font-normal">· under 150 chars</span></h3>
+                <button class="copy-btn" onclick="copyText('linkedin-short')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="linkedin-short" class="font-body leading-relaxed"></p>
+              <p class="text-xs text-vasl-gray/50 mt-2 font-body"><span id="linkedin-short-count">0</span> characters</p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">MEDIUM VERSION <span class="text-vasl-gray/50 font-normal">· ~300 chars</span></h3>
+                <button class="copy-btn" onclick="copyText('linkedin-medium')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="linkedin-medium" class="font-body leading-relaxed"></p>
+              <p class="text-xs text-vasl-gray/50 mt-2 font-body"><span id="linkedin-medium-count">0</span> characters</p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">LONG VERSION <span class="text-vasl-gray/50 font-normal">· ~500 chars with hashtags</span></h3>
+                <button class="copy-btn" onclick="copyText('linkedin-long')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="linkedin-long" class="font-body leading-relaxed whitespace-pre-line"></p>
+              <p class="text-xs text-vasl-gray/50 mt-2 font-body"><span id="linkedin-long-count">0</span> characters</p>
+            </div>
+          </div>
+
+          <!-- Tab Content: SEO -->
+          <div id="tab-seo" class="tab-content hidden space-y-4">
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">HASHTAGS</h3>
+                <button class="copy-btn" onclick="copyText('seo-hashtags')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy All
+                </button>
+              </div>
+              <div id="seo-hashtags" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">ALT TEXTS</h3>
+                <button class="copy-btn" onclick="copyText('seo-alts')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy All
+                </button>
+              </div>
+              <div id="seo-alts" class="space-y-2"></div>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">META DESCRIPTION <span class="text-vasl-gray/50 font-normal">· 160 chars</span></h3>
+                <button class="copy-btn" onclick="copyText('seo-meta')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+              </div>
+              <p id="seo-meta" class="font-body leading-relaxed"></p>
+            </div>
+
+            <div class="result-card">
+              <div class="result-card-header">
+                <h3 class="font-heading font-semibold text-sm text-vasl-gray">KEYWORDS</h3>
+                <button class="copy-btn" onclick="copyText('seo-keywords')">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy All
+                </button>
+              </div>
+              <div id="seo-keywords" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN 7: MY PROJECTS LIST -->
+      <!-- ====================================================== -->
+      <section id="screen-projects" class="app-screen hidden p-6 md:p-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">My Projects</h1>
+            <p class="text-vasl-gray font-body text-sm">All your documented creative work in one place.</p>
+          </div>
+          <button onclick="navigateTo('new-project')" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            New Project
+          </button>
+        </div>
+
+        <!-- Project Grid -->
+        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="projects-empty" class="bg-white rounded-card border border-vasl-light-gray/50 p-16 text-center hidden">
+          <div class="w-20 h-20 bg-vasl-bg rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="image" class="w-10 h-10 text-vasl-gray/30"></i>
+          </div>
+          <h3 class="font-heading font-semibold text-xl mb-3">Your portfolio is empty</h3>
+          <p class="text-vasl-gray font-body mb-8 max-w-md mx-auto">Every great portfolio starts with one project. Upload your best work and let AI create a stunning case study.</p>
+          <button onclick="navigateTo('new-project')" class="btn-gold py-3 px-8 font-heading font-semibold text-sm inline-flex items-center gap-2">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            Create Your First Project
+          </button>
+        </div>
+      </section>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN 7B: PROJECT DETAIL -->
+      <!-- ====================================================== -->
+      <section id="screen-project-detail" class="app-screen hidden p-6 md:p-10">
+        <div class="max-w-3xl">
+          <!-- Back Button -->
+          <button onclick="navigateTo('projects')" class="flex items-center gap-2 text-vasl-gray hover:text-vasl-dark text-sm font-body mb-6 transition-colors">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Back to Projects
+          </button>
+
+          <!-- Project Header -->
+          <div class="flex flex-col sm:flex-row gap-6 mb-8">
+            <div id="detail-thumbnail" class="w-full sm:w-32 h-32 bg-vasl-light-gray rounded-card overflow-hidden flex-shrink-0">
+              <!-- Thumbnail image -->
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h1 id="detail-title" class="font-heading font-bold text-2xl mb-2"></h1>
+                  <p id="detail-date" class="text-vasl-gray font-body text-sm"></p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <select id="detail-status" onchange="updateProjectStatus()" class="text-xs font-heading font-medium px-3 py-1.5 rounded-full border border-vasl-light-gray bg-white cursor-pointer">
+                    <option value="draft">Draft</option>
+                    <option value="published">Published</option>
+                    <option value="in-progress">In Progress</option>
+                  </select>
+                  <button onclick="deleteProject()" class="w-8 h-8 flex items-center justify-center text-vasl-gray hover:text-vasl-error rounded-input hover:bg-vasl-error/5 transition-colors">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Same tabs as Results (reused structure) -->
+          <div class="flex gap-1 bg-white rounded-card p-1 border border-vasl-light-gray/50 mb-6">
+            <button class="detail-tab active" data-tab="behance" onclick="switchDetailTab('behance')">
+              <i data-lucide="pen-tool" class="w-4 h-4"></i>
+              Behance
+            </button>
+            <button class="detail-tab" data-tab="linkedin" onclick="switchDetailTab('linkedin')">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              LinkedIn
+            </button>
+            <button class="detail-tab" data-tab="seo" onclick="switchDetailTab('seo')">
+              <i data-lucide="hash" class="w-4 h-4"></i>
+              SEO
+            </button>
+          </div>
+
+          <div id="detail-content" class="space-y-4">
+            <!-- Populated by JS when viewing a project -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================== -->
+      <!-- DNA SETTINGS (Edit DNA from app) -->
+      <!-- ====================================================== -->
+      <section id="screen-dna-settings" class="app-screen hidden p-6 md:p-10">
+        <div class="max-w-2xl">
+          <div class="mb-8">
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-2">Design DNA</h1>
+            <p class="text-vasl-gray font-body">Your creative style profile. AI uses this to match your voice.</p>
+          </div>
+
+          <!-- DNA Card Preview -->
+          <div id="dna-card" class="bg-vasl-dark rounded-card p-8 mb-8 hidden">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 bg-vasl-gold/20 rounded-full flex items-center justify-center">
+                <i data-lucide="dna" class="w-5 h-5 text-vasl-gold"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-heading font-semibold">Your Design DNA</h3>
+                <p class="text-white/50 text-sm font-body">Style profile active</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-white/40 text-xs font-heading font-medium uppercase tracking-wide mb-1">Aesthetic</p>
+                <p id="dna-card-aesthetic" class="text-white font-body"></p>
+              </div>
+              <div>
+                <p class="text-white/40 text-xs font-heading font-medium uppercase tracking-wide mb-1">Inspirations</p>
+                <p id="dna-card-inspirations" class="text-white font-body"></p>
+              </div>
+              <div class="col-span-2">
+                <p class="text-white/40 text-xs font-heading font-medium uppercase tracking-wide mb-1">Style</p>
+                <p id="dna-card-style" class="text-white/80 font-body text-sm"></p>
+              </div>
+            </div>
+          </div>
+
+          <div id="dna-card-empty" class="bg-white rounded-card border border-vasl-light-gray/50 p-8 text-center mb-8">
+            <i data-lucide="dna" class="w-10 h-10 text-vasl-gray/30 mx-auto mb-3"></i>
+            <h3 class="font-heading font-semibold text-lg mb-2">No Design DNA set up</h3>
+            <p class="text-vasl-gray font-body text-sm mb-5">Set up your style profile so AI can match your creative voice.</p>
+            <button onclick="navigateTo('dna')" class="btn-gold py-2.5 px-6 text-sm font-heading font-medium">
+              Set Up Design DNA
+            </button>
+          </div>
+
+          <button id="dna-edit-btn" onclick="navigateTo('dna')" class="btn-outline py-2.5 px-6 text-sm font-heading font-medium hidden">
+            <i data-lucide="pencil" class="w-4 h-4 inline-block mr-2"></i>
+            Edit Design DNA
+          </button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SCRIPTS -->
+  <!-- ============================================================ -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dna.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/generate.js"></script>
+  <script src="js/output.js"></script>
+  <script src="js/projects.js"></script>
+
+</body>
+</html>
