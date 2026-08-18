@@ -84,42 +84,107 @@ Project Details:
 
 Generate the complete Behance case study, LinkedIn posts, and SEO package for this project. Generate ${imageCount || 1} alt texts (one per image). Remember: return ONLY valid JSON.`;
 
-    const chatCompletion = await groq.chat.completions.create({
-      messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
-        { role: 'user', content: userPrompt },
-      ],
-      model: 'llama-3.3-70b-versatile',
-      temperature: 0.7,
-      max_tokens: 2048,
-      response_format: { type: 'json_object' },
-    });
+    // Try models in order of preference
+    const models = ['openai/gpt-oss-120b', 'qwen/qwen3.6-27b', 'allam-2-7b'];
+    let content = null;
+    let lastError = null;
 
-    const content = chatCompletion.choices[0]?.message?.content;
+    for (const model of models) {
+      try {
+        console.log(`Trying model: ${model}`);
+        const chatCompletion = await groq.chat.completions.create({
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            { role: 'user', content: userPrompt },
+          ],
+          model: model,
+          temperature: 0.7,
+          max_tokens: 4096,
+        });
 
-    if (!content) {
-      throw new Error('Empty response from Groq');
-    }
-
-    // Parse JSON response
-    let result;
-    try {
-      result = JSON.parse(content);
-    } catch (parseError) {
-      // Try to extract JSON from the response if it has extra text
-      const jsonMatch = content.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        result = JSON.parse(jsonMatch[0]);
-      } else {
-        throw new Error('Failed to parse AI response as JSON');
+        content = chatCompletion.choices[0]?.message?.content;
+        if (content) {
+          console.log(`Model ${model} responded. Length: ${content.length}`);
+          console.log('Raw response (first 500 chars):', content.substring(0, 500));
+          break;
+        }
+      } catch (modelError) {
+        console.error(`Model ${model} failed:`, modelError.message);
+        lastError = modelError;
+        continue;
       }
     }
 
-    // Validate structure
-    if (!result.behance || !result.linkedin || !result.seo) {
-      throw new Error('Response missing required sections (behance, linkedin, seo)');
+    if (!content) {
+      throw lastError || new Error('All models failed to respond');
     }
 
+    // Parse JSON response — handle various formats
+    let result;
+    try {
+      // 1. Try direct JSON parse
+      result = JSON.parse(content);
+    } catch (parseError) {
+      // 2. Strip markdown code fences: ```json ... ``` or ``` ... ```
+      let cleaned = content.replace(/```(?:json)?\s*\n?/g, '').replace(/\n?```/g, '').trim();
+
+      // 3. Strip thinking tags: <think>...</think>
+      cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+
+      // 4. Try to find a JSON object
+      const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        try {
+          result = JSON.parse(jsonMatch[0]);
+        } catch (e) {
+          console.error('Failed to parse extracted JSON:', jsonMatch[0].substring(0, 300));
+          throw new Error('Failed to parse AI response as JSON');
+        }
+      } else {
+        console.error('No JSON found in response:', cleaned.substring(0, 500));
+        throw new Error('No JSON object found in AI response');
+      }
+    }
+
+    // Normalize keys — AI sometimes uses different names
+    if (!result.behance && result.behaviour) {
+      result.behance = result.behaviour;
+      delete result.behaviour;
+    }
+    if (!result.behance && result.behance_case_study) {
+      result.behance = result.behance_case_study;
+    }
+
+    // Validate and fill defaults for missing sections
+    if (!result.behance) result.behance = {};
+    if (!result.linkedin) result.linkedin = {};
+    if (!result.seo) result.seo = {};
+
+    // Ensure all required fields have at least empty values
+    result.behance = {
+      title: result.behance.title || projectName || 'Untitled Project',
+      challenge: result.behance.challenge || '',
+      process: result.behance.process || '',
+      solution: result.behance.solution || '',
+      tools: result.behance.tools || tools || [],
+      tags: result.behance.tags || [],
+      full_description: result.behance.full_description || '',
+    };
+
+    result.linkedin = {
+      short: result.linkedin.short || '',
+      medium: result.linkedin.medium || '',
+      long: result.linkedin.long || '',
+    };
+
+    result.seo = {
+      hashtags: result.seo.hashtags || [],
+      alt_texts: result.seo.alt_texts || [],
+      meta_description: result.seo.meta_description || '',
+      keywords: result.seo.keywords || [],
+    };
+
+    console.log('Generation successful! Title:', result.behance.title);
     return res.status(200).json(result);
 
   } catch (error) {
