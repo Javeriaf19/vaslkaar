@@ -6,6 +6,8 @@
 const STORAGE_KEYS = {
   DNA: 'vaslkaar_dna',
   PROJECTS: 'vaslkaar_projects',
+  CLIENTS: 'vaslkaar_clients',
+  INVOICES: 'vaslkaar_invoices',
 };
 
 // ---- Design DNA ---- //

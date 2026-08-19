@@ -20,7 +20,7 @@ function navigateTo(screenName) {
 
   // Determine if we need the app shell
   const fullScreens = ['landing', 'dna'];
-  const appScreens = ['dashboard', 'new-project', 'generating', 'results', 'projects', 'project-detail', 'dna-settings'];
+  const appScreens = ['dashboard', 'new-project', 'generating', 'results', 'projects', 'project-detail', 'dna-settings', 'crm', 'invoices', 'payments'];
 
   // Hide ALL full-page screens
   document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
@@ -83,6 +83,15 @@ function onScreenEnter(screenName) {
       break;
     case 'dna-settings':
       if (typeof renderDnaCard === 'function') renderDnaCard();
+      break;
+    case 'crm':
+      if (typeof renderClientList === 'function') renderClientList();
+      break;
+    case 'invoices':
+      if (typeof renderInvoiceList === 'function') renderInvoiceList();
+      break;
+    case 'payments':
+      if (typeof renderPaymentDashboard === 'function') renderPaymentDashboard();
       break;
   }
 }

@@ -336,6 +336,22 @@
         </a>
 
         <div class="pt-6 pb-2 px-3">
+          <p class="text-white/30 text-xs font-heading font-semibold tracking-wider uppercase">Business</p>
+        </div>
+        <a href="#" class="sidebar-link" data-screen="crm" onclick="navigateTo('crm'); return false;">
+          <i data-lucide="users" class="w-5 h-5"></i>
+          <span>Clients</span>
+        </a>
+        <a href="#" class="sidebar-link" data-screen="invoices" onclick="navigateTo('invoices'); return false;">
+          <i data-lucide="receipt" class="w-5 h-5"></i>
+          <span>Invoices</span>
+        </a>
+        <a href="#" class="sidebar-link" data-screen="payments" onclick="navigateTo('payments'); return false;">
+          <i data-lucide="wallet" class="w-5 h-5"></i>
+          <span>Payments</span>
+        </a>
+
+        <div class="pt-6 pb-2 px-3">
           <p class="text-white/30 text-xs font-heading font-semibold tracking-wider uppercase">Settings</p>
         </div>
         <a href="#" class="sidebar-link" data-screen="dna-settings" onclick="navigateTo('dna-settings'); return false;">
@@ -956,12 +972,310 @@
         </div>
       </section>
 
+      <!-- ====================================================== -->
+      <!-- SCREEN: CLIENT CRM -->
+      <!-- ====================================================== -->
+      <section id="screen-crm" class="app-screen hidden p-6 md:p-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Clients</h1>
+            <p class="text-vasl-gray font-body text-sm">Manage your clients across all platforms.</p>
+          </div>
+          <button onclick="openClientModal()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            Add Client
+          </button>
+        </div>
+
+        <!-- Client Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Total Clients</p>
+            <p id="crm-stat-total" class="font-heading font-bold text-2xl">0</p>
+          </div>
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Active</p>
+            <p id="crm-stat-active" class="font-heading font-bold text-2xl text-vasl-success">0</p>
+          </div>
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">On Hold</p>
+            <p id="crm-stat-hold" class="font-heading font-bold text-2xl text-vasl-warning">0</p>
+          </div>
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Completed</p>
+            <p id="crm-stat-completed" class="font-heading font-bold text-2xl">0</p>
+          </div>
+        </div>
+
+        <!-- Client List -->
+        <div id="crm-client-list" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="crm-empty" class="bg-white rounded-card border border-vasl-light-gray/50 p-12 text-center">
+          <div class="w-16 h-16 bg-vasl-bg rounded-full flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="users" class="w-8 h-8 text-vasl-gray/30"></i>
+          </div>
+          <h3 class="font-heading font-semibold text-lg mb-2">No clients yet</h3>
+          <p class="text-vasl-gray font-body text-sm mb-6 max-w-sm mx-auto">Add your first client to start tracking projects and payments.</p>
+          <button onclick="openClientModal()" class="btn-gold py-2.5 px-6 text-sm font-heading font-medium inline-flex items-center gap-2">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            Add First Client
+          </button>
+        </div>
+      </section>
+
+      <!-- Client Add/Edit Modal -->
+      <div id="client-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50" onclick="closeClientModal()"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-card p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+          <div class="flex items-center justify-between mb-6">
+            <h2 id="client-modal-title" class="font-heading font-bold text-xl">Add New Client</h2>
+            <button onclick="closeClientModal()" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-bg transition-colors">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+          <form id="client-form" class="space-y-5">
+            <input type="hidden" id="client-edit-id" value="" />
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Client Name *</label>
+              <input type="text" id="client-name" placeholder="Person or brand name" class="input-field w-full" required />
+            </div>
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Platform</label>
+              <select id="client-platform" class="input-field w-full">
+                <option value="">Select platform...</option>
+                <option value="fiverr">Fiverr</option>
+                <option value="upwork">Upwork</option>
+                <option value="direct">Direct Client</option>
+                <option value="job">Full-time Job</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="referral">Referral</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Contact (WhatsApp / Email)</label>
+              <input type="text" id="client-contact" placeholder="e.g. +92 300 1234567 or email@example.com" class="input-field w-full" />
+            </div>
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Status</label>
+              <select id="client-status" class="input-field w-full">
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+                <option value="on-hold">On Hold</option>
+                <option value="problem">Problem</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Notes</label>
+              <textarea id="client-notes" rows="3" placeholder="Any important context..." class="input-field w-full resize-none"></textarea>
+            </div>
+            <div class="flex gap-3 pt-2">
+              <button type="submit" class="btn-gold flex-1 py-3 font-heading font-semibold text-sm">Save Client</button>
+              <button type="button" onclick="closeClientModal()" class="btn-outline flex-1 py-3 font-heading font-semibold text-sm">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN: INVOICES -->
+      <!-- ====================================================== -->
+      <section id="screen-invoices" class="app-screen hidden p-6 md:p-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Invoices</h1>
+            <p class="text-vasl-gray font-body text-sm">Create professional invoices in seconds.</p>
+          </div>
+          <button onclick="openInvoiceForm()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
+            <i data-lucide="file-plus" class="w-4 h-4"></i>
+            New Invoice
+          </button>
+        </div>
+
+        <!-- Invoice Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Total Invoices</p>
+            <p id="inv-stat-total" class="font-heading font-bold text-2xl">0</p>
+          </div>
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Paid</p>
+            <p id="inv-stat-paid" class="font-heading font-bold text-2xl text-vasl-success">0</p>
+          </div>
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Pending</p>
+            <p id="inv-stat-pending" class="font-heading font-bold text-2xl text-vasl-warning">0</p>
+          </div>
+          <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50">
+            <p class="text-vasl-gray text-xs font-heading font-medium uppercase tracking-wide mb-1">Overdue</p>
+            <p id="inv-stat-overdue" class="font-heading font-bold text-2xl text-vasl-error">0</p>
+          </div>
+        </div>
+
+        <!-- Invoice List -->
+        <div id="invoice-list" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="invoices-empty" class="bg-white rounded-card border border-vasl-light-gray/50 p-12 text-center">
+          <div class="w-16 h-16 bg-vasl-bg rounded-full flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="receipt" class="w-8 h-8 text-vasl-gray/30"></i>
+          </div>
+          <h3 class="font-heading font-semibold text-lg mb-2">No invoices yet</h3>
+          <p class="text-vasl-gray font-body text-sm mb-6 max-w-sm mx-auto">Create your first professional invoice — it takes 30 seconds.</p>
+          <button onclick="openInvoiceForm()" class="btn-gold py-2.5 px-6 text-sm font-heading font-medium inline-flex items-center gap-2">
+            <i data-lucide="file-plus" class="w-4 h-4"></i>
+            Create First Invoice
+          </button>
+        </div>
+      </section>
+
+      <!-- Invoice Create Modal -->
+      <div id="invoice-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50" onclick="closeInvoiceModal()"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl bg-white rounded-card p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="font-heading font-bold text-xl">Create Invoice</h2>
+            <button onclick="closeInvoiceModal()" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-bg">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+          <form id="invoice-form" class="space-y-5">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Invoice # </label>
+                <input type="text" id="invoice-number" placeholder="INV-001" class="input-field w-full" />
+              </div>
+              <div>
+                <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Date</label>
+                <input type="date" id="invoice-date" class="input-field w-full" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Client *</label>
+              <select id="invoice-client" class="input-field w-full" required>
+                <option value="">Select client...</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Due Date *</label>
+              <input type="date" id="invoice-due" class="input-field w-full" required />
+            </div>
+
+            <!-- Line Items -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-sm font-body font-medium text-vasl-gray">Line Items</label>
+                <button type="button" onclick="addInvoiceItem()" class="text-vasl-gold text-sm font-heading font-medium hover:text-vasl-gold-hover">+ Add Item</button>
+              </div>
+              <div id="invoice-items" class="space-y-3">
+                <div class="invoice-item flex gap-3 items-start">
+                  <input type="text" placeholder="Service description" class="input-field flex-1 inv-desc" />
+                  <input type="number" placeholder="Amount" class="input-field w-28 inv-amount" min="0" />
+                </div>
+              </div>
+              <div class="flex justify-end mt-4 pt-4 border-t border-vasl-light-gray/50">
+                <div class="text-right">
+                  <p class="text-vasl-gray text-sm font-body">Total</p>
+                  <p id="invoice-total" class="font-heading font-bold text-2xl">Rs. 0</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Currency</label>
+              <select id="invoice-currency" class="input-field w-full">
+                <option value="PKR">PKR (₨)</option>
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Notes (optional)</label>
+              <textarea id="invoice-notes" rows="2" placeholder="Payment terms, bank details, etc." class="input-field w-full resize-none"></textarea>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+              <button type="submit" class="btn-gold flex-1 py-3 font-heading font-semibold text-sm flex items-center justify-center gap-2">
+                <i data-lucide="file-check" class="w-4 h-4"></i>
+                Create Invoice
+              </button>
+              <button type="button" onclick="closeInvoiceModal()" class="btn-outline py-3 px-6 font-heading font-semibold text-sm">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ====================================================== -->
+      <!-- SCREEN: PAYMENT TRACKER -->
+      <!-- ====================================================== -->
+      <section id="screen-payments" class="app-screen hidden p-6 md:p-10">
+        <div class="mb-8">
+          <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Payment Tracker</h1>
+          <p class="text-vasl-gray font-body text-sm">Track every rupee across all your income streams.</p>
+        </div>
+
+        <!-- Revenue Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div class="bg-vasl-dark rounded-card p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <i data-lucide="trending-up" class="w-5 h-5 text-vasl-success"></i>
+              <span class="text-white/60 text-sm font-heading font-medium">Total Earned</span>
+            </div>
+            <p id="pay-total-earned" class="font-heading font-bold text-3xl text-white">Rs. 0</p>
+            <p class="text-white/40 text-xs font-body mt-1">This month</p>
+          </div>
+          <div class="bg-vasl-warning/10 border border-vasl-warning/20 rounded-card p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <i data-lucide="clock" class="w-5 h-5 text-vasl-warning"></i>
+              <span class="text-vasl-dark text-sm font-heading font-medium">Pending</span>
+            </div>
+            <p id="pay-total-pending" class="font-heading font-bold text-3xl text-vasl-warning">Rs. 0</p>
+            <p class="text-vasl-gray text-xs font-body mt-1">Awaiting payment</p>
+          </div>
+          <div class="bg-vasl-error/5 border border-vasl-error/20 rounded-card p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <i data-lucide="alert-triangle" class="w-5 h-5 text-vasl-error"></i>
+              <span class="text-vasl-dark text-sm font-heading font-medium">Overdue</span>
+            </div>
+            <p id="pay-total-overdue" class="font-heading font-bold text-3xl text-vasl-error">Rs. 0</p>
+            <p class="text-vasl-gray text-xs font-body mt-1">Past due date</p>
+          </div>
+        </div>
+
+        <!-- Payment History -->
+        <div class="mb-6">
+          <h2 class="font-heading font-semibold text-lg mb-4">Recent Payments</h2>
+          <div id="payment-history" class="space-y-3">
+            <!-- Populated by JS -->
+          </div>
+          <div id="payments-empty" class="bg-white rounded-card border border-vasl-light-gray/50 p-12 text-center">
+            <div class="w-16 h-16 bg-vasl-bg rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="wallet" class="w-8 h-8 text-vasl-gray/30"></i>
+            </div>
+            <h3 class="font-heading font-semibold text-lg mb-2">No payment data yet</h3>
+            <p class="text-vasl-gray font-body text-sm mb-6 max-w-sm mx-auto">Create invoices to start tracking your payments automatically.</p>
+            <button onclick="navigateTo('invoices')" class="btn-gold py-2.5 px-6 text-sm font-heading font-medium inline-flex items-center gap-2">
+              <i data-lucide="file-plus" class="w-4 h-4"></i>
+              Create an Invoice
+            </button>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
   <!-- ============================================================ -->
   <!-- SCRIPTS -->
   <!-- ============================================================ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
   <script src="js/dna.js"></script>
@@ -969,6 +1283,9 @@
   <script src="js/generate.js"></script>
   <script src="js/output.js"></script>
   <script src="js/projects.js"></script>
+  <script src="js/crm.js"></script>
+  <script src="js/invoice.js"></script>
+  <script src="js/payments.js"></script>
 
 </body>
 </html>
