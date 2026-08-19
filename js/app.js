@@ -20,7 +20,7 @@ function navigateTo(screenName) {
 
   // Determine if we need the app shell
   const fullScreens = ['landing', 'dna'];
-  const appScreens = ['dashboard', 'new-project', 'generating', 'results', 'projects', 'project-detail', 'dna-settings', 'crm', 'invoices', 'payments'];
+  const appScreens = ['dashboard', 'new-project', 'generating', 'results', 'projects', 'project-detail', 'dna-settings', 'crm', 'invoices', 'payments', 'ideas', 'opportunities'];
 
   // Hide ALL full-page screens
   document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));

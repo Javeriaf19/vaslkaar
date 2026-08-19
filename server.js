@@ -25,43 +25,37 @@ const MIME = {
   '.webp': 'image/webp',
 };
 
-// Import the API handler
+// Import API handlers
 const generateHandler = require('./api/generate');
+const ideasHandler = require('./api/ideas');
+
+// Helper: handle API route
+function handleAPI(handler, req, res) {
+  let body = '';
+  req.on('data', chunk => { body += chunk; });
+  req.on('end', async () => {
+    try { req.body = JSON.parse(body); } catch (e) { req.body = {}; }
+    const mockRes = {
+      statusCode: 200, headers: {},
+      setHeader(k, v) { this.headers[k] = v; },
+      status(code) { this.statusCode = code; return this; },
+      json(data) {
+        res.writeHead(this.statusCode, { 'Content-Type': 'application/json', ...this.headers });
+        res.end(JSON.stringify(data));
+      },
+      end() { res.writeHead(this.statusCode, this.headers); res.end(); },
+    };
+    await handler(req, mockRes);
+  });
+}
 
 const server = http.createServer(async (req, res) => {
   // ---- API Routes ---- //
   if (req.url === '/api/generate' && req.method === 'POST') {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', async () => {
-      try {
-        req.body = JSON.parse(body);
-      } catch (e) {
-        req.body = {};
-      }
-
-      // Create a mock Vercel-style res object
-      const mockRes = {
-        statusCode: 200,
-        headers: {},
-        setHeader(key, value) { this.headers[key] = value; },
-        status(code) { this.statusCode = code; return this; },
-        json(data) {
-          res.writeHead(this.statusCode, {
-            'Content-Type': 'application/json',
-            ...this.headers,
-          });
-          res.end(JSON.stringify(data));
-        },
-        end() {
-          res.writeHead(this.statusCode, this.headers);
-          res.end();
-        },
-      };
-
-      await generateHandler(req, mockRes);
-    });
-    return;
+    handleAPI(generateHandler, req, res); return;
+  }
+  if (req.url === '/api/ideas' && req.method === 'POST') {
+    handleAPI(ideasHandler, req, res); return;
   }
 
   // ---- Static Files ---- //
