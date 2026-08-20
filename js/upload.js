@@ -138,13 +138,24 @@ function submitProjectForm() {
   });
 
   // Build project data
+  const brandName = document.getElementById('brand-name')?.value?.trim() || '';
+  if (!brandName) {
+    showToast('Please enter the brand / client name');
+    return;
+  }
+
+  // Extract dominant colors from first image
+  const colors = projectImages.length > 0 ? extractDominantColors(projectImages[0]) : [];
+
   const projectData = {
     name: projectName,
+    brandName: brandName,
     clientType: clientType,
     description: description,
     tools: tools,
     images: projectImages,
     imageCount: projectImages.length,
+    dominantColors: colors,
   };
 
   // Store current project for generation

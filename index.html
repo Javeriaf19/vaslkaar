@@ -253,6 +253,44 @@
               <div id="dna-preview-grid" class="grid grid-cols-5 gap-3 mt-3"></div>
             </div>
 
+            <!-- Profession -->
+            <div>
+              <label for="dna-profession" class="block font-heading font-semibold text-sm mb-3">
+                Your Profession <span class="text-vasl-error">*</span>
+              </label>
+              <select id="dna-profession" class="input-field w-full" required>
+                <option value="">Select your field...</option>
+                <option value="Graphic Designer">Graphic Designer</option>
+                <option value="UI/UX Designer">UI/UX Designer</option>
+                <option value="Video Editor">Video Editor</option>
+                <option value="Motion Designer">Motion Designer</option>
+                <option value="Content Creator">Content Creator</option>
+                <option value="Photographer">Photographer</option>
+                <option value="Web Developer">Web Developer</option>
+                <option value="Illustrator">Illustrator</option>
+                <option value="3D Artist">3D Artist</option>
+                <option value="Social Media Manager">Social Media Manager</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Language Preference -->
+            <div>
+              <label for="dna-language" class="block font-heading font-semibold text-sm mb-3">
+                Content Language
+              </label>
+              <select id="dna-language" class="input-field w-full">
+                <option value="English">English</option>
+                <option value="Urdu">اردو (Urdu)</option>
+                <option value="Hindi">हिंदी (Hindi)</option>
+                <option value="Punjabi">پنجابی (Punjabi)</option>
+                <option value="French">Français (French)</option>
+                <option value="Arabic">العربية (Arabic)</option>
+                <option value="Spanish">Español (Spanish)</option>
+              </select>
+              <p class="text-vasl-gray/60 text-xs font-body mt-1">AI will generate case studies and posts in this language</p>
+            </div>
+
             <!-- Aesthetic Tags -->
             <div>
               <label class="block font-heading font-semibold text-sm mb-3">Your Aesthetic</label>
@@ -317,7 +355,7 @@
     <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-vasl-dark z-40 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300">
       <!-- Logo -->
       <div class="flex items-center gap-3 px-6 py-6 border-b border-white/10">
-        <img src="assets/logo.png" alt="Vaslkaar" class="h-8" />
+        <img src="assets/logo.png" alt="Vaslkaar" class="h-8" style="filter: brightness(1.5) contrast(1.2);" />
       </div>
 
       <!-- Nav Links -->
@@ -521,6 +559,16 @@
                   class="input-field w-full" />
               </div>
 
+              <!-- Brand Name (NEW - Required) -->
+              <div>
+                <label for="brand-name" class="block text-sm font-body font-medium text-vasl-gray mb-1.5">
+                  Brand / Client Name <span class="text-vasl-error">*</span>
+                </label>
+                <input type="text" id="brand-name" placeholder="e.g. NutriStuff, TechVibe, Ali's Coffee House" required
+                  class="input-field w-full" />
+                <p class="text-vasl-gray/60 text-xs font-body mt-1">AI uses this to generate accurate, brand-specific content</p>
+              </div>
+
               <!-- Client Type -->
               <div>
                 <label for="client-type" class="block text-sm font-body font-medium text-vasl-gray mb-1.5">Client Type</label>
@@ -537,12 +585,18 @@
               <!-- Description -->
               <div>
                 <label for="project-description" class="block text-sm font-body font-medium text-vasl-gray mb-1.5">
-                  Brief Description <span class="text-vasl-error">*</span>
+                  Describe What You Designed <span class="text-vasl-error">*</span>
                 </label>
-                <textarea id="project-description" rows="3" required
-                  placeholder="What was the goal of this project? What did the client need? (2–3 sentences is perfect)"
-                  class="input-field w-full resize-none"></textarea>
-                <p id="description-error" class="text-vasl-error text-sm mt-1 hidden font-body">Please add a brief description.</p>
+                <div class="relative">
+                  <textarea id="project-description" rows="4" required
+                    placeholder="Be specific! Example: I designed a complete brand identity for NutriStuff — a nutrition supplement brand. Includes logo, packaging design for 3 products, social media templates, and a brand guideline PDF. Colors: green + white + black. Modern minimal style."
+                    class="input-field w-full resize-none pr-10"></textarea>
+                  <button type="button" onclick="toggleVoiceInput('project-description')" class="absolute right-3 top-3 w-7 h-7 flex items-center justify-center rounded-full hover:bg-vasl-gold/10 text-vasl-gray hover:text-vasl-gold transition-colors" title="Voice input">
+                    <i data-lucide="mic" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <p id="description-error" class="text-vasl-error text-sm mt-1 hidden font-body">Please describe your project in detail.</p>
+                <p class="text-vasl-gray/50 text-xs font-body mt-1">💡 The more detail you give, the better AI writes your case study</p>
               </div>
 
               <!-- Tools Used -->
@@ -993,10 +1047,16 @@
             <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Clients</h1>
             <p class="text-vasl-gray font-body text-sm">Manage your clients across all platforms.</p>
           </div>
-          <button onclick="openClientModal()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
-            <i data-lucide="user-plus" class="w-4 h-4"></i>
-            Add Client
-          </button>
+          <div class="flex items-center gap-2">
+            <button onclick="exportClientsCSV()" class="btn-outline py-2.5 px-4 text-sm font-heading font-medium flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              CSV
+            </button>
+            <button onclick="openClientModal()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              Add Client
+            </button>
+          </div>
         </div>
 
         <!-- Client Stats -->
@@ -1101,10 +1161,16 @@
             <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Invoices</h1>
             <p class="text-vasl-gray font-body text-sm">Create professional invoices in seconds.</p>
           </div>
-          <button onclick="openInvoiceForm()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
-            <i data-lucide="file-plus" class="w-4 h-4"></i>
-            New Invoice
-          </button>
+          <div class="flex items-center gap-2">
+            <button onclick="exportInvoicesCSV()" class="btn-outline py-2.5 px-4 text-sm font-heading font-medium flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              CSV
+            </button>
+            <button onclick="openInvoiceForm()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
+              <i data-lucide="file-plus" class="w-4 h-4"></i>
+              New Invoice
+            </button>
+          </div>
         </div>
 
         <!-- Invoice Stats -->
@@ -1228,9 +1294,15 @@
       <!-- SCREEN: PAYMENT TRACKER -->
       <!-- ====================================================== -->
       <section id="screen-payments" class="app-screen hidden p-6 md:p-10">
-        <div class="mb-8">
-          <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Payment Tracker</h1>
-          <p class="text-vasl-gray font-body text-sm">Track every rupee across all your income streams.</p>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Payment Tracker</h1>
+            <p class="text-vasl-gray font-body text-sm">Track every rupee across all your income streams.</p>
+          </div>
+          <button onclick="exportPaymentsCSV()" class="btn-outline py-2.5 px-4 text-sm font-heading font-medium flex items-center gap-2">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            Export CSV
+          </button>
         </div>
 
         <!-- Revenue Cards -->
@@ -1427,6 +1499,7 @@
   <!-- SCRIPTS -->
   <!-- ============================================================ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="js/utils.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
   <script src="js/dna.js"></script>

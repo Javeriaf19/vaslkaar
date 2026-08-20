@@ -89,12 +89,16 @@ function submitDnaForm() {
 
   const inspirations = document.getElementById('dna-inspirations')?.value?.trim() || '';
   const description = document.getElementById('dna-description')?.value?.trim() || '';
+  const profession = document.getElementById('dna-profession')?.value || '';
+  const language = document.getElementById('dna-language')?.value || 'English';
 
   // Build DNA profile
   const dnaProfile = {
     aesthetics: selectedTags,
     inspirations: inspirations,
     description: description,
+    profession: profession,
+    language: language,
     sampleImages: dnaSampleImages.slice(0, 3), // Store max 3 thumbnails to save space
     createdAt: new Date().toISOString(),
   };

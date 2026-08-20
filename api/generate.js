@@ -62,27 +62,38 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { description, projectName, clientType, tools, imageCount, dnaProfile } = req.body;
+    const { description, projectName, brandName, clientType, tools, imageCount, dominantColors, dnaProfile } = req.body;
 
     if (!description) {
       return res.status(400).json({ error: 'Project description is required.' });
     }
 
+    const language = dnaProfile?.language || 'English';
+    const profession = dnaProfile?.profession || 'Creative Freelancer';
+
     // Build the user prompt
     const dnaString = dnaProfile
-      ? `Aesthetic: ${(dnaProfile.aesthetics || []).join(', ') || 'Not specified'}. Inspirations: ${dnaProfile.inspirations || 'Not specified'}. Style notes: ${dnaProfile.description || 'Not specified'}.`
+      ? `Profession: ${profession}. Aesthetic: ${(dnaProfile.aesthetics || []).join(', ') || 'Not specified'}. Inspirations: ${dnaProfile.inspirations || 'Not specified'}. Style notes: ${dnaProfile.description || 'Not specified'}.`
       : 'No Design DNA provided.';
+
+    const colorInfo = (dominantColors && dominantColors.length > 0)
+      ? `- Dominant colors from uploaded images: ${dominantColors.join(', ')}`
+      : '';
 
     const userPrompt = `Creator's Design DNA: ${dnaString}
 
 Project Details:
+- Brand / Client Name: ${brandName || projectName || 'Not provided (suggest one)'}
 - Project Name: ${projectName || 'Not provided (suggest one)'}
 - Client Type: ${clientType || 'Not specified'}
 - Description: ${description}
 - Tools Used: ${(tools || []).join(', ') || 'Not specified'}
 - Number of images: ${imageCount || 1}
+${colorInfo}
 
-Generate the complete Behance case study, LinkedIn posts, and SEO package for this project. Generate ${imageCount || 1} alt texts (one per image). Remember: return ONLY valid JSON.`;
+IMPORTANT: This project is for the brand "${brandName || 'the client'}". Make sure ALL content references this exact brand name. Do NOT use a different brand name.
+
+Generate the complete Behance case study, LinkedIn posts, and SEO package for this project. Generate ${imageCount || 1} alt texts (one per image).${language !== 'English' ? ` Write ALL content in ${language}.` : ''} Remember: return ONLY valid JSON.`;
 
     // Try models in order of preference
     const models = ['openai/gpt-oss-120b', 'qwen/qwen3.6-27b', 'allam-2-7b'];

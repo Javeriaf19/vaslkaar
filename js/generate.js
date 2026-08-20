@@ -19,13 +19,17 @@ async function startGeneration(projectData) {
     const payload = {
       description: projectData.description,
       projectName: projectData.name,
+      brandName: projectData.brandName || '',
       clientType: projectData.clientType,
       tools: projectData.tools,
       imageCount: projectData.imageCount,
+      dominantColors: projectData.dominantColors || [],
       dnaProfile: {
         aesthetics: dna.aesthetics || [],
         inspirations: dna.inspirations || '',
         description: dna.description || '',
+        profession: dna.profession || '',
+        language: dna.language || 'English',
       }
     };
 
