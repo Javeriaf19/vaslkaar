@@ -28,8 +28,8 @@
 - [How to Contribute?](#how-to-contribute)
 - [What's Next?](#whats-next)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
-- [Author](#author)
+- [Acknowledgements](#-acknowledgements)
+- [Author & Founder](#-author--founder)
 
 ---
 
@@ -287,10 +287,15 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻 Author & Founder
 
 **Javeria Farhan**  
-*Graphic Designer, Video Editor & Computer Science Student*  
+*Founder, Lead Creator & Computer Science Student*
+
+I am a 21-year-old creative technologist from Pakistan combining **Graphic Design, Video Editing, and Full-Stack AI Development**. I built **VASLKAAR** to solve the exact operational fragmentation and burnout I faced while balancing freelance client deliverables, design workflows, and computer science studies.
+
+* 💼 **LinkedIn:** [linkedin.com/in/javeriafarhan](https://www.linkedin.com/in/javeriafarhan)
 * 🐙 **GitHub:** [@Javeriaf19](https://github.com/Javeriaf19)
-* 🌐 **Live Demo:** [vaslkaar.vercel.app](https://vaslkaar.vercel.app)
-* 🇵🇰 **Built with ❤️ in Pakistan**
+* ✉️ **Email:** [javeriafarhan19@gmail.com](mailto:javeriafarhan19@gmail.com)
+* 🌐 **Live Application:** [vaslkaar.vercel.app](https://vaslkaar.vercel.app)
+* 🇵🇰 **Proudly Designed & Built with ❤️ in Pakistan**
