@@ -1,12 +1,25 @@
-# 🌟 VASLKAAR — Your Work, Connected.
+<div align="center">
+  <br />
+  <img src="assets/logo.png" alt="VASLKAAR Brand Logo" width="280" />
+  <br /><br />
 
-> **The All-In-One AI Freelancer OS** — Document creative projects, generate multi-slide carousel decks, manage clients, issue PDF invoices, track real-time payments, and discover live gig opportunities with AI execution roadmaps.
+  # 🌟 VASLKAAR — Your Work, Connected.
 
-[![Pixel Forge AI Hackathon](https://img.shields.io/badge/Pixel%20Forge-AI%20Hackathon%202026-gold?style=for-the-badge)](https://vaslkaar.vercel.app)
-[![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
-[![Built with Groq](https://img.shields.io/badge/AI%20Engine-Groq%20SDK%20120B-f59e0b?style=for-the-badge)](https://groq.com)
-[![Author: Javeria Farhan](https://img.shields.io/badge/Author-Javeria%20Farhan-22c55e?style=for-the-badge)](https://www.linkedin.com/in/javeriafarhan)
-[![Made in Pakistan](https://img.shields.io/badge/Made%20in-Pakistan%20🇵🇰-01411C?style=for-the-badge)](https://vaslkaar.vercel.app)
+  <p align="center">
+    <strong>The All-In-One AI Freelancer OS</strong><br />
+    Document creative projects • Generate 4-slide carousel decks • Manage clients • Issue PDF invoices • Track real-time payments • Discover live gig opportunities with AI roadmaps
+  </p>
+
+  <p align="center">
+    <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Pixel%20Forge-AI%20Hackathon%202026-gold?style=for-the-badge" alt="Pixel Forge AI Hackathon" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-black?style=for-the-badge" alt="License: MIT" /></a>
+    <a href="https://groq.com"><img src="https://img.shields.io/badge/AI%20Engine-Groq%20SDK%20120B-f59e0b?style=for-the-badge" alt="AI Engine" /></a>
+    <a href="https://www.linkedin.com/in/javeriafarhan"><img src="https://img.shields.io/badge/Author-Javeria%20Farhan-22c55e?style=for-the-badge" alt="Author" /></a>
+    <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Made%20in-Pakistan%20🇵🇰-01411C?style=for-the-badge" alt="Made in Pakistan" /></a>
+  </p>
+</div>
+
+<br />
 
 ---
 
