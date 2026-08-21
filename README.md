@@ -5,7 +5,8 @@
 [![Pixel Forge AI Hackathon](https://img.shields.io/badge/Pixel%20Forge-AI%20Hackathon%202026-gold?style=for-the-badge)](https://vaslkaar.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
 [![Built with Groq](https://img.shields.io/badge/AI%20Engine-Groq%20SDK%20120B-f59e0b?style=for-the-badge)](https://groq.com)
-[![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-22c55e?style=for-the-badge)](#)
+[![Author: Javeria Farhan](https://img.shields.io/badge/Author-Javeria%20Farhan-22c55e?style=for-the-badge)](https://www.linkedin.com/in/javeriafarhan)
+[![Made in Pakistan](https://img.shields.io/badge/Made%20in-Pakistan%20🇵🇰-01411C?style=for-the-badge)](https://vaslkaar.vercel.app)
 
 ---
 
@@ -290,9 +291,9 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ## 👩‍💻 Author & Founder
 
 **Javeria Farhan**  
-*Founder, Lead Creator & Computer Science Student*
+*Founder, Lead Creator & Software Engineering Student (1st Year, Virtual University of Pakistan)*
 
-I am a 21-year-old creative technologist from Pakistan combining **Graphic Design, Video Editing, and Full-Stack AI Development**. I built **VASLKAAR** to solve the exact operational fragmentation and burnout I faced while balancing freelance client deliverables, design workflows, and computer science studies.
+I am a 21-year-old creative technologist from Pakistan combining **Graphic Design, Video Editing, and Software Engineering**. Currently a first-year BS Software Engineering student at the **Virtual University of Pakistan**, I built **VASLKAAR** to solve the exact operational fragmentation and burnout I faced while balancing freelance client deliverables, design workflows, and university studies.
 
 * 💼 **LinkedIn:** [linkedin.com/in/javeriafarhan](https://www.linkedin.com/in/javeriafarhan)
 * 🐙 **GitHub:** [@Javeriaf19](https://github.com/Javeriaf19)
