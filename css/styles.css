@@ -595,3 +595,22 @@ select.input-field {
   color: #ECFDF5;
   border: 1px solid rgba(16, 185, 129, 0.35);
 }
+
+/* Sidebar Custom Scrollbar */
+#sidebar nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+#sidebar nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#sidebar nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+#sidebar nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.5);
+}
+
