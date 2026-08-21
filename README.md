@@ -311,11 +311,12 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## 🙏 Acknowledgements
 
-* **[Pixel Forge AI Hackathon 2026](https://vaslkaar.vercel.app)** — For the inspiration and platform to build VASLKAAR.
-* **[Groq](https://groq.com)** — For blazing-fast AI inference speeds with LPU technology.
-* **[Lucide Icons](https://lucide.dev)** — For the beautiful vector icons.
-* **[Tailwind CSS](https://tailwindcss.com)** — For the utility-first styling system.
-* **[html2canvas](https://html2canvas.hertzen.com/) & [jsPDF](https://github.com/parallax/jsPDF)** — For client-side graphic rendering and PDF generation.
+* **[Pixel Forge AI Hackathon 2026](https://vaslkaar.vercel.app)** — Built from scratch in **just 5 intense days** after discovering the hackathon late.
+* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a solo designer-developer can ship a full-stack, production-grade OS at 10x speed.
+* **[Groq Cloud](https://groq.com)** — For blazing-fast AI inference speeds powered by LPU technology (`openai/gpt-oss-120b`, `qwen/qwen3.6-27b`).
+* **[Lucide Icons](https://lucide.dev)** — For clean, modern UI iconography.
+* **[Tailwind CSS](https://tailwindcss.com)** — For the rapid, utility-first styling system.
+* **[html2canvas](https://html2canvas.hertzen.com/) & [jsPDF](https://github.com/parallax/jsPDF)** — For client-side graphic vector rendering and PDF generation.
 
 ---
 
