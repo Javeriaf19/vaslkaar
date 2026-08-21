@@ -728,7 +728,7 @@
           </div>
 
           <!-- Tabs -->
-          <div class="flex gap-1 bg-white rounded-card p-1 border border-vasl-light-gray/50 mb-6">
+          <div class="flex flex-wrap gap-1 bg-white rounded-card p-1 border border-vasl-light-gray/50 mb-6">
             <button class="result-tab active" data-tab="behance" onclick="switchResultTab('behance')">
               <i data-lucide="pen-tool" class="w-4 h-4"></i>
               Behance
@@ -740,6 +740,10 @@
             <button class="result-tab" data-tab="seo" onclick="switchResultTab('seo')">
               <i data-lucide="hash" class="w-4 h-4"></i>
               SEO
+            </button>
+            <button class="result-tab" data-tab="graphics" onclick="switchResultTab('graphics')">
+              <i data-lucide="image" class="w-4 h-4 text-vasl-gold"></i>
+              🎨 Graphic Studio
             </button>
           </div>
 
@@ -888,6 +892,112 @@
                 </button>
               </div>
               <div id="seo-keywords" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+
+          <!-- Tab Content: Graphic Studio (HTML-to-Image) -->
+          <div id="tab-graphics" class="tab-content hidden space-y-6">
+            <!-- Studio Control Bar -->
+            <div class="bg-white rounded-card p-4 border border-vasl-light-gray/50 flex flex-wrap items-center justify-between gap-4">
+              <!-- Format Selector -->
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-heading font-semibold text-vasl-gray uppercase tracking-wider">Format:</span>
+                <div class="flex gap-1 bg-vasl-bg p-1 rounded-input">
+                  <button type="button" id="format-square-btn" class="graphic-format-btn active px-3 py-1 rounded text-xs font-heading font-medium" onclick="setGraphicFormat('square')">
+                    1:1 Square
+                  </button>
+                  <button type="button" id="format-portrait-btn" class="graphic-format-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicFormat('portrait')">
+                    4:5 Carousel
+                  </button>
+                  <button type="button" id="format-banner-btn" class="graphic-format-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicFormat('banner')">
+                    16:9 Cover
+                  </button>
+                </div>
+              </div>
+
+              <!-- Theme Selector -->
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-heading font-semibold text-vasl-gray uppercase tracking-wider">Theme:</span>
+                <div class="flex gap-1 bg-vasl-bg p-1 rounded-input">
+                  <button type="button" id="theme-gold-btn" class="graphic-theme-btn active px-3 py-1 rounded text-xs font-heading font-medium" onclick="setGraphicTheme('gold')">
+                    ✨ Gold
+                  </button>
+                  <button type="button" id="theme-minimal-btn" class="graphic-theme-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicTheme('minimal')">
+                    ⚪ Minimal
+                  </button>
+                  <button type="button" id="theme-cyber-btn" class="graphic-theme-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicTheme('cyber')">
+                    🌌 Cyber
+                  </button>
+                  <button type="button" id="theme-emerald-btn" class="graphic-theme-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicTheme('emerald')">
+                    🌿 Emerald
+                  </button>
+                </div>
+              </div>
+
+              <!-- Export Button -->
+              <div>
+                <button type="button" id="download-graphic-btn" onclick="downloadGraphicPNG()" class="btn-gold py-2 px-4 text-xs font-heading font-semibold flex items-center gap-2 shadow-sm">
+                  <i data-lucide="download" class="w-4 h-4"></i>
+                  Download PNG (High-Res)
+                </button>
+              </div>
+            </div>
+
+            <!-- Customizer + Canvas Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <!-- Left: Live Customizer Form (5 cols) -->
+              <div class="lg:col-span-5 bg-white rounded-card p-5 border border-vasl-light-gray/50 space-y-4">
+                <div class="flex items-center justify-between border-b border-vasl-light-gray/30 pb-3">
+                  <h4 class="font-heading font-semibold text-sm">Design Controls</h4>
+                  <button type="button" onclick="resetGraphicDefaults()" class="text-vasl-gold text-xs font-heading font-medium hover:underline">
+                    Reset
+                  </button>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-heading font-medium text-vasl-gray mb-1">Badge / Tag</label>
+                  <input type="text" id="g-input-badge" class="input-field w-full text-xs py-2" placeholder="CASE STUDY • 2026" oninput="updateGraphicLive()" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-heading font-medium text-vasl-gray mb-1">Headline</label>
+                  <input type="text" id="g-input-headline" class="input-field w-full text-xs py-2" placeholder="Brand Identity & System" oninput="updateGraphicLive()" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-heading font-medium text-vasl-gray mb-1">Description / Hook</label>
+                  <textarea id="g-input-sub" rows="3" class="input-field w-full text-xs py-2 resize-none" placeholder="Strategic design and visual storytelling..." oninput="updateGraphicLive()"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-xs font-heading font-medium text-vasl-gray mb-1">Metric Stat</label>
+                    <input type="text" id="g-input-stat-num" class="input-field w-full text-xs py-2" placeholder="+180%" oninput="updateGraphicLive()" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-heading font-medium text-vasl-gray mb-1">Stat Label</label>
+                    <input type="text" id="g-input-stat-label" class="input-field w-full text-xs py-2" placeholder="Brand Recall" oninput="updateGraphicLive()" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-heading font-medium text-vasl-gray mb-1">Author / Credit</label>
+                  <input type="text" id="g-input-author" class="input-field w-full text-xs py-2" placeholder="@vaslkaar.creative" oninput="updateGraphicLive()" />
+                </div>
+              </div>
+
+              <!-- Right: Live Artboard (7 cols) -->
+              <div class="lg:col-span-7 flex flex-col items-center justify-center p-4 sm:p-6 bg-neutral-900/5 rounded-card border border-dashed border-vasl-light-gray overflow-hidden">
+                <div id="graphic-artboard-wrapper" class="w-full flex justify-center items-center">
+                  <div id="graphic-artboard" class="graphic-artboard theme-gold format-square shadow-xl rounded-xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative">
+                    <!-- Populated dynamically by graphics.js -->
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 mt-4 text-xs text-vasl-gray font-body">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-vasl-gold"></i>
+                  <span>Live vector render • Auto-adapts to your brand colors & fonts</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1499,12 +1609,14 @@
   <!-- SCRIPTS -->
   <!-- ============================================================ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
   <script src="js/dna.js"></script>
   <script src="js/upload.js"></script>
   <script src="js/generate.js"></script>
+  <script src="js/graphics.js"></script>
   <script src="js/output.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/crm.js"></script>

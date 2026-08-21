@@ -531,3 +531,67 @@ select.input-field {
     gap: 0.5rem;
   }
 }
+
+/* ============================================
+   GRAPHIC STUDIO (HTML-to-Image Artboards)
+   ============================================ */
+
+.graphic-format-btn.active,
+.graphic-theme-btn.active {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.graphic-artboard {
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Formats */
+.graphic-artboard.format-square {
+  width: 500px;
+  height: 500px;
+  max-width: 100%;
+}
+
+.graphic-artboard.format-portrait {
+  width: 440px;
+  height: 550px;
+  max-width: 100%;
+}
+
+.graphic-artboard.format-banner {
+  width: 580px;
+  height: 326px;
+  max-width: 100%;
+}
+
+/* Themes */
+.graphic-artboard.theme-gold {
+  background: radial-gradient(circle at 85% 15%, rgba(201, 168, 76, 0.15), transparent 45%),
+              linear-gradient(145deg, #1C1917 0%, #0C0A09 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.graphic-artboard.theme-minimal {
+  background: #FDFDFD;
+  color: #18181B;
+  border: 1px solid #E4E4E7;
+}
+
+.graphic-artboard.theme-cyber {
+  background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.25), transparent 50%),
+              linear-gradient(145deg, #0F172A 0%, #020617 100%);
+  color: #F8FAFC;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+.graphic-artboard.theme-emerald {
+  background: radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.2), transparent 50%),
+              linear-gradient(145deg, #064E3B 0%, #022C22 100%);
+  color: #ECFDF5;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}

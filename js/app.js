@@ -176,7 +176,10 @@ function switchResultTab(tabName) {
   document.querySelectorAll('#screen-results .tab-content').forEach(c => c.classList.add('hidden'));
   document.getElementById(`tab-${tabName}`).classList.remove('hidden');
 
-  // Re-init icons
+  // Re-init icons & artboard
+  if (tabName === 'graphics' && typeof renderGraphicArtboard === 'function') {
+    renderGraphicArtboard();
+  }
   if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 

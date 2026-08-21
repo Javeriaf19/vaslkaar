@@ -67,6 +67,11 @@ function displayResults(result, projectData) {
     ).join('');
   }
 
+  // --- Initialize Graphic Studio Tab ---
+  if (typeof initGraphicStudio === 'function') {
+    initGraphicStudio(projectData, result);
+  }
+
   // Reset to Behance tab
   switchResultTab('behance');
 }
