@@ -978,9 +978,32 @@
               <div>
                 <button type="button" id="download-graphic-btn" onclick="downloadGraphicPNG()" class="btn-gold py-2 px-4 text-xs font-heading font-semibold flex items-center gap-2 shadow-sm">
                   <i data-lucide="download" class="w-4 h-4"></i>
-                  Download PNG (High-Res)
+                  Download Slide PNG
                 </button>
               </div>
+            </div>
+
+            <!-- Carousel Slide Deck Navigator (Multi-Slide Document) -->
+            <div class="bg-white rounded-card p-3 border border-vasl-light-gray/50 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-1.5 overflow-x-auto py-1">
+                <span class="text-xs font-heading font-semibold text-vasl-gray mr-2 uppercase tracking-wider">Slide Deck:</span>
+                <button type="button" id="slide-btn-1" class="graphic-slide-btn active px-3 py-1.5 rounded-lg text-xs font-heading font-semibold" onclick="selectGraphicSlide(1)">
+                  📑 1. Hook & Cover
+                </button>
+                <button type="button" id="slide-btn-2" class="graphic-slide-btn px-3 py-1.5 rounded-lg text-xs font-heading font-semibold text-vasl-gray hover:bg-vasl-bg" onclick="selectGraphicSlide(2)">
+                  🔍 2. Strategy & Challenge
+                </button>
+                <button type="button" id="slide-btn-3" class="graphic-slide-btn px-3 py-1.5 rounded-lg text-xs font-heading font-semibold text-vasl-gray hover:bg-vasl-bg" onclick="selectGraphicSlide(3)">
+                  🎨 3. Visuals & Deliverables
+                </button>
+                <button type="button" id="slide-btn-4" class="graphic-slide-btn px-3 py-1.5 rounded-lg text-xs font-heading font-semibold text-vasl-gray hover:bg-vasl-bg" onclick="selectGraphicSlide(4)">
+                  📈 4. Outcome & CTA
+                </button>
+              </div>
+              <button type="button" onclick="downloadFullCarouselDeck()" class="btn-outline py-1.5 px-3 text-xs font-heading font-semibold flex items-center gap-1.5 text-vasl-dark">
+                <i data-lucide="layers" class="w-3.5 h-3.5 text-vasl-gold"></i>
+                Download All 4 Slides (Deck)
+              </button>
             </div>
 
             <!-- Customizer + Canvas Layout -->

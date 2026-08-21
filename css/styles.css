@@ -614,3 +614,11 @@ select.input-field {
   background: rgba(201, 168, 76, 0.5);
 }
 
+/* Graphic Carousel Slide Buttons */
+.graphic-slide-btn.active {
+  background-color: #1C1917;
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+

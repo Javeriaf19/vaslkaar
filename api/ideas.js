@@ -28,15 +28,14 @@ module.exports = async function handler(req, res) {
     const systemPrompt = `You are VASLKAAR's AI Growth Advisor for freelance creatives. You give specific, actionable, personalized advice — never generic.
 
 Rules:
-- Be specific: name exact platforms, tools, price points
+- Be specific: name exact platforms (Upwork, Fiverr, LinkedIn, Devpost, Contra, Wellfound, Dribbble, Gumroad, Creative Market), tools, price points
 - Every suggestion must be actionable TODAY
 - Include realistic earning estimates in PKR and USD
 - Match suggestions to the freelancer's skills and style
-- Never say "consider" or "you might want to" — be direct
-- Use emojis sparingly for visual scanning
+- For every idea/opportunity, generate a 3-step actionable execution roadmap with real learning resources, free tools, and verified platforms
 - Return ONLY valid JSON — no markdown, no code fences
 
-Return a JSON object with this format:
+Return a JSON object with this exact format:
 {
   "title": "Category title",
   "ideas": [
@@ -45,10 +44,27 @@ Return a JSON object with this format:
       "description": "2-3 sentence actionable description",
       "earning": "Rs. X - Y / $X - $Y",
       "difficulty": "Easy|Medium|Hard",
-      "timeframe": "How long to execute",
-      "action": "First step to take right now",
-      "platform": "Where to do this (if applicable)",
-      "link": "URL to the platform (if applicable)"
+      "timeframe": "How long to execute (e.g. 1-2 Weeks)",
+      "action": "First step to take right now today",
+      "platform": "Upwork|Fiverr|LinkedIn|Devpost|Contra|Wellfound|Dribbble|Gumroad|Creative Market|YouTube",
+      "searchKeyword": "Exact search keywords for this gig or resource (e.g. 'minimalist logo design' or 'ai video editing')",
+      "roadmap": {
+        "phase1": {
+          "title": "Setup & Foundations (Day 1-7)",
+          "steps": ["Step 1 description", "Step 2 description"],
+          "freeTools": ["Figma", "Canva", "CapCut", "GitHub"]
+        },
+        "phase2": {
+          "title": "Build & Skill Up (Day 8-20)",
+          "steps": ["Step 1 description", "Step 2 description"],
+          "learningQuery": "Topic to learn on YouTube/Docs"
+        },
+        "phase3": {
+          "title": "Launch & Monetize (Day 21-30)",
+          "steps": ["Step 1 description", "Step 2 description"],
+          "launchTarget": "Exact platform to pitch"
+        }
+      }
     }
   ]
 }`;
