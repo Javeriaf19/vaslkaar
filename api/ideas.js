@@ -4,6 +4,54 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
+function cleanAndParseJson(content) {
+  if (!content) throw new Error('Empty response');
+  let cleaned = content.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+  cleaned = cleaned.replace(/```(?:json)?\s*\n?/gi, '').replace(/\n?```/g, '').trim();
+
+  try {
+    return JSON.parse(cleaned);
+  } catch (e) {}
+
+  const firstBrace = cleaned.indexOf('{');
+  if (firstBrace !== -1) {
+    let sub = cleaned.substring(firstBrace);
+    try {
+      return JSON.parse(sub);
+    } catch (e) {}
+
+    let openBraces = 0;
+    let openBrackets = 0;
+    let inString = false;
+    let escape = false;
+
+    for (let i = 0; i < sub.length; i++) {
+      const c = sub[i];
+      if (escape) { escape = false; continue; }
+      if (c === '\\') { escape = true; continue; }
+      if (c === '"') { inString = !inString; continue; }
+      if (!inString) {
+        if (c === '{') openBraces++;
+        else if (c === '}') openBraces--;
+        else if (c === '[') openBrackets++;
+        else if (c === ']') openBrackets--;
+      }
+    }
+
+    if (inString) sub += '"';
+    while (openBrackets > 0) { sub += ']'; openBrackets--; }
+    while (openBraces > 0) { sub += '}'; openBraces--; }
+
+    try {
+      return JSON.parse(sub);
+    } catch (e) {
+      console.error('Repair failed:', e.message);
+    }
+  }
+
+  throw new Error('Invalid JSON format from AI');
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -17,52 +65,50 @@ module.exports = async function handler(req, res) {
     const { category, skills, aesthetics, experience } = req.body;
 
     const prompts = {
-      'project-ideas': `Generate 5 creative freelance project ideas that a designer/creator can build for their portfolio or sell to clients. Each should be specific, actionable, and include potential earning.`,
-      'hackathon-ideas': `Generate 5 unique hackathon project ideas that combine design + technology. Focus on AI-powered tools, creative tech, or social impact projects. Make them winnable and impressive.`,
-      'income-boost': `Generate 5 specific, actionable ways this freelancer can increase their income in the next 30 days. Be concrete — not generic advice. Include estimated extra monthly income for each.`,
-      'skill-growth': `Suggest 5 high-value skills this freelancer should learn next to increase their earning potential. Include why each skill is in demand and estimated income boost.`,
-      'passive-income': `Generate 5 realistic passive income ideas for a creative freelancer. Focus on digital products, templates, courses, or automated services they can build once and sell repeatedly.`,
-      'opportunities': `Generate 8 specific freelance opportunities, gigs, or job listings that would be perfect for this freelancer right now. Include the platform to find them, expected pay range, and how to apply. Mix: 3 quick gigs (earn this week), 3 ongoing clients (monthly income), 2 dream projects (career-building). Be very specific with job titles and platforms.`,
+      'project-ideas': `Generate 4 punchy, creative freelance project ideas that a creator can build for their portfolio or sell to clients. Each should be specific, actionable, and include potential earning.`,
+      'hackathon-ideas': `Generate 4 unique hackathon project ideas that combine design + technology. Focus on AI tools, creative tech, or indie SaaS. Make them impressive and winnable.`,
+      'income-boost': `Generate 4 specific, actionable ways this freelancer can increase income in the next 30 days. Be concrete with realistic PKR and USD estimates.`,
+      'skill-growth': `Suggest 4 high-value skills this freelancer should learn next to increase earning potential. Include why each is in demand.`,
+      'passive-income': `Generate 4 realistic passive income ideas (digital templates, UI kits, automated workflows) they can build once and sell repeatedly.`,
+      'opportunities': `Generate 4 specific, high-fit freelance opportunities/gigs across Upwork, Fiverr, LinkedIn, and Devpost with clear action steps.`,
     };
 
-    const systemPrompt = `You are VASLKAAR's AI Growth Advisor for freelance creatives. You give specific, actionable, personalized advice — never generic.
+    const systemPrompt = `You are VASLKAAR's AI Growth Advisor for freelance creatives. You give specific, actionable, personalized advice.
 
 Rules:
-- Be specific: name exact platforms (Upwork, Fiverr, LinkedIn, Devpost, Contra, Wellfound, Dribbble, Gumroad, Creative Market), tools, price points
-- Every suggestion must be actionable TODAY
+- Be specific: name exact platforms (Upwork, Fiverr, LinkedIn, Devpost, Contra, Wellfound, Dribbble, Gumroad, YouTube)
 - Include realistic earning estimates in PKR and USD
-- Match suggestions to the freelancer's skills and style
-- For every idea/opportunity, generate a 3-step actionable execution roadmap with real learning resources, free tools, and verified platforms
-- Return ONLY valid JSON — no markdown, no code fences
+- For each item, include a concise 3-phase execution roadmap with tools and search keywords
+- Return ONLY valid JSON — no markdown, no conversational text
 
-Return a JSON object with this exact format:
+Format:
 {
   "title": "Category title",
   "ideas": [
     {
-      "title": "Specific idea title",
-      "description": "2-3 sentence actionable description",
-      "earning": "Rs. X - Y / $X - $Y",
+      "title": "Specific title",
+      "description": "2-sentence actionable description",
+      "earning": "Rs. 25,000 - 60,000 / $100 - $300",
       "difficulty": "Easy|Medium|Hard",
-      "timeframe": "How long to execute (e.g. 1-2 Weeks)",
-      "action": "First step to take right now today",
-      "platform": "Upwork|Fiverr|LinkedIn|Devpost|Contra|Wellfound|Dribbble|Gumroad|Creative Market|YouTube",
-      "searchKeyword": "Exact search keywords for this gig or resource (e.g. 'minimalist logo design' or 'ai video editing')",
+      "timeframe": "1-2 Weeks",
+      "action": "Immediate first step",
+      "platform": "Upwork|Fiverr|LinkedIn|Devpost|Contra|Wellfound|Dribbble|Gumroad|YouTube",
+      "searchKeyword": "search keywords",
       "roadmap": {
         "phase1": {
           "title": "Setup & Foundations (Day 1-7)",
-          "steps": ["Step 1 description", "Step 2 description"],
+          "steps": ["Step 1", "Step 2"],
           "freeTools": ["Figma", "Canva", "CapCut", "GitHub"]
         },
         "phase2": {
           "title": "Build & Skill Up (Day 8-20)",
-          "steps": ["Step 1 description", "Step 2 description"],
-          "learningQuery": "Topic to learn on YouTube/Docs"
+          "steps": ["Step 1", "Step 2"],
+          "learningQuery": "Topic tutorial"
         },
         "phase3": {
           "title": "Launch & Monetize (Day 21-30)",
-          "steps": ["Step 1 description", "Step 2 description"],
-          "launchTarget": "Exact platform to pitch"
+          "steps": ["Step 1", "Step 2"],
+          "launchTarget": "Target platform"
         }
       }
     }
@@ -75,10 +121,9 @@ Return a JSON object with this exact format:
 - Experience level: ${experience || 'Intermediate'}
 
 Category: ${category || 'project-ideas'}
-
 ${prompts[category] || prompts['project-ideas']}
 
-Remember: return ONLY valid JSON.`;
+Return ONLY valid JSON.`;
 
     const models = ['openai/gpt-oss-120b', 'qwen/qwen3.6-27b'];
     let content = null;
@@ -91,8 +136,8 @@ Remember: return ONLY valid JSON.`;
             { role: 'user', content: userPrompt },
           ],
           model,
-          temperature: 0.8,
-          max_tokens: 3000,
+          temperature: 0.7,
+          max_tokens: 4096,
         });
         content = completion.choices[0]?.message?.content;
         if (content) break;
@@ -102,21 +147,10 @@ Remember: return ONLY valid JSON.`;
       }
     }
 
-    if (!content) throw new Error('All models failed');
+    if (!content) throw new Error('All AI models failed to respond');
 
-    // Parse JSON
-    let result;
-    try {
-      result = JSON.parse(content);
-    } catch (e) {
-      let cleaned = content.replace(/```(?:json)?\s*\n?/g, '').replace(/\n?```/g, '').trim();
-      cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
-      const match = cleaned.match(/\{[\s\S]*\}/);
-      if (match) result = JSON.parse(match[0]);
-      else throw new Error('Invalid JSON response');
-    }
+    const result = cleanAndParseJson(content);
 
-    // Ensure structure
     if (!result.ideas) result.ideas = [];
     if (!result.title) result.title = category;
 
@@ -124,6 +158,6 @@ Remember: return ONLY valid JSON.`;
 
   } catch (error) {
     console.error('Ideas error:', error);
-    return res.status(500).json({ error: 'Failed to generate ideas. Try again.', details: error.message });
+    return res.status(500).json({ error: 'Failed to generate ideas. Please try again.', details: error.message });
   }
 };

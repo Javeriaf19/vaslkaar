@@ -130,30 +130,50 @@ Generate the complete Behance case study, LinkedIn posts, and SEO package for th
       throw lastError || new Error('All models failed to respond');
     }
 
-    // Parse JSON response — handle various formats
+    // Parse JSON response with auto-repair
     let result;
     try {
-      // 1. Try direct JSON parse
       result = JSON.parse(content);
     } catch (parseError) {
-      // 2. Strip markdown code fences: ```json ... ``` or ``` ... ```
-      let cleaned = content.replace(/```(?:json)?\s*\n?/g, '').replace(/\n?```/g, '').trim();
+      let cleaned = content.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+      cleaned = cleaned.replace(/```(?:json)?\s*\n?/gi, '').replace(/\n?```/g, '').trim();
 
-      // 3. Strip thinking tags: <think>...</think>
-      cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+      try {
+        result = JSON.parse(cleaned);
+      } catch (e2) {
+        const firstBrace = cleaned.indexOf('{');
+        if (firstBrace !== -1) {
+          let sub = cleaned.substring(firstBrace);
+          try {
+            result = JSON.parse(sub);
+          } catch (e3) {
+            let openBraces = 0;
+            let openBrackets = 0;
+            let inString = false;
+            let escape = false;
 
-      // 4. Try to find a JSON object
-      const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        try {
-          result = JSON.parse(jsonMatch[0]);
-        } catch (e) {
-          console.error('Failed to parse extracted JSON:', jsonMatch[0].substring(0, 300));
-          throw new Error('Failed to parse AI response as JSON');
+            for (let i = 0; i < sub.length; i++) {
+              const c = sub[i];
+              if (escape) { escape = false; continue; }
+              if (c === '\\') { escape = true; continue; }
+              if (c === '"') { inString = !inString; continue; }
+              if (!inString) {
+                if (c === '{') openBraces++;
+                else if (c === '}') openBraces--;
+                else if (c === '[') openBrackets++;
+                else if (c === ']') openBrackets--;
+              }
+            }
+
+            if (inString) sub += '"';
+            while (openBrackets > 0) { sub += ']'; openBrackets--; }
+            while (openBraces > 0) { sub += '}'; openBraces--; }
+
+            result = JSON.parse(sub);
+          }
+        } else {
+          throw new Error('No JSON found in AI response');
         }
-      } else {
-        console.error('No JSON found in response:', cleaned.substring(0, 500));
-        throw new Error('No JSON object found in AI response');
       }
     }
 
