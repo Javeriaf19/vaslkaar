@@ -145,12 +145,17 @@ function renderClientList() {
           <p class="text-vasl-gray text-xs font-body truncate">${c.platform ? c.platform.charAt(0).toUpperCase() + c.platform.slice(1) : 'No platform'} ${c.contact ? '· ' + escapeHtml(c.contact) : ''}</p>
         </div>
       </div>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
         <span class="text-xs font-heading font-semibold px-2.5 py-1 rounded-full ${statusColors[c.status] || statusColors.active}">${(c.status || 'active').replace('-', ' ')}</span>
-        <button onclick="openClientModal('${c.id}')" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-bg text-vasl-gray hover:text-vasl-dark transition-colors">
+        ${c.contact ? `
+        <button onclick="chatClientWhatsApp('${c.contact.replace(/'/g, "\\'")}', '${c.name.replace(/'/g, "\\'")}')" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-success/10 text-vasl-gray hover:text-vasl-success transition-colors" title="Chat on WhatsApp">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+        </button>
+        ` : ''}
+        <button onclick="openClientModal('${c.id}')" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-bg text-vasl-gray hover:text-vasl-dark transition-colors" title="Edit Client">
           <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
         </button>
-        <button onclick="confirmDeleteClient('${c.id}')" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-error/5 text-vasl-gray hover:text-vasl-error transition-colors">
+        <button onclick="confirmDeleteClient('${c.id}')" class="w-8 h-8 flex items-center justify-center rounded-input hover:bg-vasl-error/5 text-vasl-gray hover:text-vasl-error transition-colors" title="Delete Client">
           <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
         </button>
       </div>
@@ -158,6 +163,13 @@ function renderClientList() {
   `).join('');
 
   if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function chatClientWhatsApp(contact, clientName) {
+  const phone = contact.replace(/[^0-9+]/g, '');
+  const greeting = encodeURIComponent(`Hi ${clientName}! 👋 Reaching out from VASLKAAR regarding our current project.`);
+  const url = phone ? `https://wa.me/${phone}?text=${greeting}` : `https://wa.me/?text=${greeting}`;
+  window.open(url, '_blank');
 }
 
 function confirmDeleteClient(id) {

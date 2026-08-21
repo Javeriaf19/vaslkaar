@@ -168,3 +168,20 @@ function saveCurrentProject() {
     }
   }
 }
+
+// ---- 1-Click Share to LinkedIn ---- //
+function shareToLinkedIn(elementId) {
+  const el = document.getElementById(elementId);
+  const text = el ? (el.textContent || el.innerText) : '';
+  if (!text) {
+    showToast('No post content found');
+    return;
+  }
+
+  copyToClipboard(text);
+  showToast('Post copied! Opening LinkedIn Composer... 🚀');
+
+  setTimeout(() => {
+    window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank');
+  }, 400);
+}
