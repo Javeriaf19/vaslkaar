@@ -60,7 +60,7 @@ As a professional graphic designer, video editor, and 1st-year Software Engineer
 - 🎓 Keeping up with **full-time university engineering coursework & exams**.
 - 🚀 Constantly learning and building skills in modern AI, coding, and creative tech.
 
-At the end of a 14-hour workday, the hardest part was never the creative design work itself — it was the **soul-draining operational chaos**:
+At the end of an exhausting day juggling clients, deliverables, and lectures, the hardest part was never the creative design work itself — it was the **operational chaos**:
 1. **The Post-Project Fatigue:** Finishing an extensive brand identity for a client at 2:00 AM, but having zero energy left to write a 1,000-word Behance case study, craft viral LinkedIn hooks, or design multi-slide carousels.
 2. **The 6-App Juggling Act:** Losing client briefs in scattered WhatsApp chats, tracking unpaid invoices on messy spreadsheets, manually designing PDF bills, and hesitating to draft awkward payment reminders.
 3. **The Growth Trap:** Spending so much time on administrative friction that there was no bandwidth left to find high-paying gigs, enter hackathons, or map out real execution roadmaps.
