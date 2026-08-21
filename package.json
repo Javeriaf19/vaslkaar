@@ -2,6 +2,7 @@
   "name": "vaslkaar",
   "version": "1.0.0",
   "description": "AI-Powered Freelancer OS — Work. Track. Earn.",
+  "homepage": "https://vaslkaar.vercel.app",
   "private": true,
   "scripts": {
     "dev": "vercel dev",
