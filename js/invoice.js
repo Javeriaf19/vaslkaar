@@ -244,13 +244,31 @@ function shareInvoiceWhatsApp(id) {
 }
 
 // ---- PDF Generation ---- //
-function generateInvoicePDF(id) {
+async function generateInvoicePDF(id) {
   const inv = getInvoices().find(i => i.id === id);
   if (!inv) return;
 
   try {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    let jsPDFClass = window.jspdf?.jsPDF || window.jsPDF || (typeof jsPDF !== 'undefined' ? jsPDF : null);
+
+    // Fallback: Dynamically load jsPDF if not available
+    if (!jsPDFClass) {
+      showToast('Loading PDF engine...');
+      await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Failed to load PDF library'));
+        document.head.appendChild(script);
+      });
+      jsPDFClass = window.jspdf?.jsPDF || window.jsPDF || (typeof jsPDF !== 'undefined' ? jsPDF : null);
+    }
+
+    if (!jsPDFClass) {
+      throw new Error('PDF Engine unavailable');
+    }
+
+    const doc = new jsPDFClass();
     const sym = CURRENCY_SYMBOLS[inv.currency] || inv.currency;
 
     // Header
