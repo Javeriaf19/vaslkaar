@@ -13,7 +13,7 @@
 | **Status** | Approved & Live |
 | **Live Working URL** | [https://vaslkaar.vercel.app](https://vaslkaar.vercel.app) |
 | **Repository** | [https://github.com/Javeriaf19/vaslkaar](https://github.com/Javeriaf19/vaslkaar) |
-| **Author / Lead Architect** | Javeria Farhan & Core Engineering Team |
+| **Core Engineering Team** | Javeria Farhan, Taha Jamshed, Muhammad Subhan, Alisha Fatima |
 | **Date** | September 2026 |
 
 ---

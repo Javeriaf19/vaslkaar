@@ -11,10 +11,10 @@
   </p>
 
   <p align="center">
-    <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Pixel%20Forge-AI%20Hackathon%202026-gold?style=for-the-badge" alt="Pixel Forge AI Hackathon" /></a>
+    <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Live%20Application-VASLKAAR-gold?style=for-the-badge" alt="Live App" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-black?style=for-the-badge" alt="License: MIT" /></a>
     <a href="https://groq.com"><img src="https://img.shields.io/badge/AI%20Engine-Groq%20SDK%20120B-f59e0b?style=for-the-badge" alt="AI Engine" /></a>
-    <a href="https://www.linkedin.com/in/javeriafarhan"><img src="https://img.shields.io/badge/Author-Javeria%20Farhan-22c55e?style=for-the-badge" alt="Author" /></a>
+    <a href="#-the-team"><img src="https://img.shields.io/badge/Team-4%20Creators-22c55e?style=for-the-badge" alt="Team" /></a>
     <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Made%20in-Pakistan%20🇵🇰-01411C?style=for-the-badge" alt="Made in Pakistan" /></a>
   </p>
 </div>
@@ -43,7 +43,7 @@
 - [What's Next?](#whats-next)
 - [License](#license)
 - [Acknowledgements](#-acknowledgements)
-- [Author & Founder](#-author--founder)
+- [The Team](#-the-team)
 
 ---
 
@@ -51,21 +51,17 @@
 
 **VASLKAAR** (derived from Urdu: *Vasl* وصل = connection / coming together, *Kaar* کار = work / doer) is an all-in-one operating system engineered specifically for creative freelancers, graphic designers, video editors, and indie builders who juggle multiple clients, platforms, and income streams.
 
-### 💡 The Genesis: Why I Built VASLKAAR
-> *"I didn't build VASLKAAR as an abstract academic experiment. I built it because I was burning out trying to survive my own daily routine."*
+### 💡 The Genesis: Why We Built VASLKAAR
+> *"We didn't build VASLKAAR as an abstract academic experiment. We built it because we were living the everyday operational chaos of modern freelance work."*
 
-As a professional graphic designer, video editor, and 1st-year Software Engineering student at the Virtual University of Pakistan, my daily reality was intense:
-- 💼 Managing **2 remote design jobs** across international timezones.
-- 🤝 Handling **freelance client projects** on Fiverr, Upwork, and direct WhatsApp referrals.
-- 🎓 Keeping up with **full-time university engineering coursework & exams**.
-- 🚀 Constantly learning and building skills in modern AI, coding, and creative tech.
+As passionate student creators, software engineering students, and freelance practitioners managing remote international jobs, client deliverables across Fiverr/Upwork, and university coursework, our daily reality was intense.
 
-At the end of an exhausting day juggling clients, deliverables, and lectures, the hardest part was never the creative design work itself — it was the **operational chaos**:
+At the end of an exhausting day, finishing creative client deliverables was never the issue — it was the **operational chaos**:
 1. **The Post-Project Fatigue:** Finishing an extensive brand identity for a client at 2:00 AM, but having zero energy left to write a 1,000-word Behance case study, craft viral LinkedIn hooks, or design multi-slide carousels.
 2. **The 6-App Juggling Act:** Losing client briefs in scattered WhatsApp chats, tracking unpaid invoices on messy spreadsheets, manually designing PDF bills, and hesitating to draft awkward payment reminders.
 3. **The Growth Trap:** Spending so much time on administrative friction that there was no bandwidth left to find high-paying gigs, enter hackathons, or map out real execution roadmaps.
 
-I realized that millions of independent creators and freelancers across Pakistan and worldwide face this exact same wall every single day. **VASLKAAR was born to connect every broken piece of the freelance journey into one seamless, private, and empowering OS.**
+We realized that millions of independent creators and freelancers across Pakistan and worldwide face this exact same wall every single day. **VASLKAAR was born to connect every broken piece of the freelance journey into one seamless, private, and empowering OS.**
 
 ---
 
@@ -311,8 +307,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## 🙏 Acknowledgements
 
-* **[Pixel Forge AI Hackathon 2026](https://vaslkaar.vercel.app)** — Built from scratch in **just 5 intense days** after discovering the hackathon late.
-* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a solo designer-developer can ship a full-stack, production-grade OS at 10x speed.
+* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a 4-member student team can ship a full-stack, production-grade OS rapidly.
 * **[Groq Cloud](https://groq.com)** — For blazing-fast AI inference speeds powered by LPU technology (`openai/gpt-oss-120b`, `qwen/qwen3.6-27b`).
 * **[Lucide Icons](https://lucide.dev)** — For clean, modern UI iconography.
 * **[Tailwind CSS](https://tailwindcss.com)** — For the rapid, utility-first styling system.
@@ -320,15 +315,20 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-## 👩‍💻 Author & Founder
+## 👥 The Team
 
-**Javeria Farhan**  
-*Founder, Lead Creator & Software Engineering Student (1st Year, Virtual University of Pakistan)*
+Meet the 4 creators behind **VASLKAAR**:
 
-I am a 21-year-old creative technologist from Pakistan combining **Graphic Design, Video Editing, and Software Engineering**. Currently a first-year BS Software Engineering student at the **Virtual University of Pakistan**, I built **VASLKAAR** to solve the exact operational fragmentation and burnout I faced while balancing freelance client deliverables, design workflows, and university studies.
+| Member | Role | Core Focus | GitHub Profile |
+|---|---|---|---|
+| **Javeria Farhan** | *Co-Founder & Lead Product Architect / UI Designer* | Product Vision, UI/UX Design System, 4-Slide Graphic Studio & Design DNA | [![GitHub](https://img.shields.io/badge/@Javeriaf19-black?style=flat&logo=github)](https://github.com/Javeriaf19) |
+| **Taha Jamshed** | *Co-Founder & Full-Stack Engineer* | Serverless Edge APIs, Architecture, System Integration & Deployment | [![GitHub](https://img.shields.io/badge/@tachiiB-black?style=flat&logo=github)](https://github.com/tachiiB) |
+| **Muhammad Subhan** | *AI Systems & Prompt Engineer* | Groq LPU Integration, JSON Parsing Engines & AI Roadmaps | [![GitHub](https://img.shields.io/badge/@MuhammadSubhan404x-black?style=flat&logo=github)](https://github.com/MuhammadSubhan404x) |
+| **Alisha Fatima** | *Frontend Engineer & QA / Growth Research* | Client CRM, Invoicing PDF Compiler, UI Testing & User Research | [![GitHub](https://img.shields.io/badge/@AlishaFatima16-black?style=flat&logo=github)](https://github.com/AlishaFatima16) |
 
-* 💼 **LinkedIn:** [linkedin.com/in/javeriafarhan](https://www.linkedin.com/in/javeriafarhan)
-* 🐙 **GitHub:** [@Javeriaf19](https://github.com/Javeriaf19)
-* ✉️ **Email:** [javeriafarhan19@gmail.com](mailto:javeriafarhan19@gmail.com)
-* 🌐 **Live Application:** [vaslkaar.vercel.app](https://vaslkaar.vercel.app)
-* 🇵🇰 **Proudly Designed & Built with ❤️ in Pakistan**
+---
+
+<div align="center">
+  <p>⭐ <em>"Discipline + Aesthetic Intuition + Consistent Execution = Impact"</em></p>
+  <p><strong>Proudly Built with ❤️ in Pakistan 🇵🇰</strong></p>
+</div>
