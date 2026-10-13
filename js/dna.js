@@ -108,7 +108,7 @@ function submitDnaForm() {
 
   // Navigate to dashboard
   navigateTo('dashboard');
-  showToast('Design DNA saved! ✨');
+  showToast('Design DNA saved!');
 }
 
 // ---- DNA Card Rendering (Settings page) ---- //

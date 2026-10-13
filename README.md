@@ -3,7 +3,7 @@
   <img src="assets/logo.png" alt="VASLKAAR Brand Logo" width="280" />
   <br /><br />
 
-  # 🌟 VASLKAAR — Your Work, Connected.
+  # VASLKAAR — Your Work, Connected.
 
   <p align="center">
     <strong>The All-In-One AI Freelancer OS</strong><br />
@@ -15,7 +15,7 @@
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-black?style=for-the-badge" alt="License: MIT" /></a>
     <a href="https://groq.com"><img src="https://img.shields.io/badge/AI%20Engine-Groq%20SDK%20120B-f59e0b?style=for-the-badge" alt="AI Engine" /></a>
     <a href="#-the-team"><img src="https://img.shields.io/badge/Team-4%20Creators-22c55e?style=for-the-badge" alt="Team" /></a>
-    <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Made%20in-Pakistan%20🇵🇰-01411C?style=for-the-badge" alt="Made in Pakistan" /></a>
+    <a href="https://vaslkaar.vercel.app"><img src="https://img.shields.io/badge/Made%20in-Pakistan-01411C?style=for-the-badge" alt="Made in Pakistan" /></a>
   </p>
 </div>
 
@@ -23,7 +23,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [About](#about)
 - [Screenshots](#screenshots)
@@ -49,11 +49,11 @@
 
 ---
 
-## 📖 About
+## About
 
 **VASLKAAR** (derived from Urdu: *Vasl* وصل = connection / coming together, *Kaar* کار = work / doer) is an all-in-one operating system engineered specifically for creative freelancers, graphic designers, video editors, and indie builders who juggle multiple clients, platforms, and income streams.
 
-### 💡 The Genesis: Why We Built VASLKAAR
+### The Genesis: Why We Built VASLKAAR
 > *"We didn't build VASLKAAR as an abstract academic experiment. We built it because we were living the everyday operational chaos of modern freelance work."*
 
 As passionate student creators, software engineering students, and freelance practitioners managing remote international jobs, client deliverables across Fiverr/Upwork, and university coursework, our daily reality was intense.
@@ -80,7 +80,7 @@ VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 | Screen | Preview |
 |---|---|
@@ -93,43 +93,43 @@ VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private
 
 ---
 
-## ✨ Features
+## Features
 
 ### 1. Creative Hub & Case Study Engine
-* **🧬 Design DNA Profiling:** Set your unique creative profile — choose from **11+ professions** (Graphic Designer, UI/UX, Video Editor, 3D Artist, etc.), aesthetic styles, inspirations, and output language.
-* **🌐 Multilingual AI Generation:** Auto-writes in **English, Urdu (اردو), Hindi (हिंदी), Punjabi (پنجابی), French (Français), Arabic (العربية), and Spanish (Español)**.
-* **🎤 Built-in Voice Input:** Speak instead of typing project briefs using browser-native Web Speech API.
-* **🎨 Canvas Color Palette Extraction:** Automatically extracts dominant hex codes from uploaded images via HTML5 Canvas.
-* **📝 Multi-Format Output:**
+* **Design DNA Profiling:** Set your unique creative profile — choose from **11+ professions** (Graphic Designer, UI/UX, Video Editor, 3D Artist, etc.), aesthetic styles, inspirations, and output language.
+* **Multilingual AI Generation:** Auto-writes in **English, Urdu (اردو), Hindi (हिंदी), Punjabi (پنجابی), French (Français), Arabic (العربية), and Spanish (Español)**.
+* **Built-in Voice Input:** Speak instead of typing project briefs using browser-native Web Speech API.
+* **Canvas Color Palette Extraction:** Automatically extracts dominant hex codes from uploaded images via HTML5 Canvas.
+* **Multi-Format Output:**
   * **Behance Case Study:** Complete overview, design challenge, process, strategic solution, and full description with 1-click Behance Editor launcher.
   * **LinkedIn Post Variations:** 3 viral formats (Short <150 chars, Medium ~300 chars, Long ~500 chars with hashtags) with **1-Click Publish to LinkedIn Composer**.
   * **SEO & Accessibility Package:** Behance tags, Google meta descriptions, and image alt text for every uploaded asset.
 
 ### 2. 4-Slide Graphic & Document Studio
-* **🖼️ Multi-Slide Carousel Deck Studio:** Turn your project instantly into a 4-slide LinkedIn Document / Instagram carousel:
+* **Multi-Slide Carousel Deck Studio:** Turn your project instantly into a 4-slide LinkedIn Document / Instagram carousel:
   * **Slide 1:** *Viral Hook & Cover* (Project Title + Badge + Extracted Palette)
   * **Slide 2:** *The Challenge & Strategy* (Core Problem + Strategic Solution)
   * **Slide 3:** *Visual Deliverables & Palette* (Palette Swatches + Tools Used)
   * **Slide 4:** *Results & Call to Action* (Key Metrics + Author Handle + CTA)
-* **📐 3 Format Ratios:** 1:1 Square (Feed), 4:5 Portrait (Carousel), 16:9 Banner (Cover).
-* **🎭 4 Design Themes:** ✨ *Dark Gold* (Luxury), ⚪ *Minimal* (Clean Editorial), 🌌 *Cyber* (Neon Modern), 🌿 *Emerald* (Warm Organic).
-* **📥 High-Res Export:** Download single slides or one-click **"Download All 4 Slides (Deck)"** in crisp 2.5x Retina PNG quality via `html2canvas`.
+* **3 Format Ratios:** 1:1 Square (Feed), 4:5 Portrait (Carousel), 16:9 Banner (Cover).
+* **4 Design Themes:** *Dark Gold* (Luxury), *Minimal* (Clean Editorial), *Cyber* (Neon Modern), *Emerald* (Warm Organic).
+* **High-Res Export:** Download single slides or one-click **"Download All 4 Slides (Deck)"** in crisp 2.5x Retina PNG quality via `html2canvas`.
 
 ### 3. Business Suite (CRM, Invoices, Payments)
-* **🧑‍💼 Client CRM:** Track clients across Fiverr, Upwork, LinkedIn, and Direct contracts with status badges (*Active, On-Hold, Completed, Problem*), notes, and **1-Click WhatsApp Direct Chat**.
-* **🧾 Professional Invoices & PDF Export:** Dynamic line items, auto-numbering (`INV-001`), multi-currency (`PKR`, `USD`, `EUR`, `GBP`), one-click branded PDF download (via `jsPDF`), and direct WhatsApp invoice sharing.
-* **💰 Payment Tracker & AI Reminders:** Live financial metrics for *Total Earned, Pending Payments, and Overdue Balances* with automated polite WhatsApp reminder messages.
-* **📊 One-Click CSV Export:** Export client rosters, invoice ledgers, and payment history to CSV for Excel / Google Sheets bookkeeping.
+* **Client CRM:** Track clients across Fiverr, Upwork, LinkedIn, and Direct contracts with status badges (*Active, On-Hold, Completed, Problem*), notes, and **1-Click WhatsApp Direct Chat**.
+* **Professional Invoices & PDF Export:** Dynamic line items, auto-numbering (`INV-001`), multi-currency (`PKR`, `USD`, `EUR`, `GBP`), one-click branded PDF download (via `jsPDF`), and direct WhatsApp invoice sharing.
+* **Payment Tracker & AI Reminders:** Live financial metrics for *Total Earned, Pending Payments, and Overdue Balances* with automated polite WhatsApp reminder messages.
+* **One-Click CSV Export:** Export client rosters, invoice ledgers, and payment history to CSV for Excel / Google Sheets bookkeeping.
 
 ### 4. Growth Engine (Ideas Lab & Live Opportunities)
-* **💡 5-Category Ideas Lab:** AI consultant tailored to your Design DNA for *Portfolio Projects, Hackathon Concepts, 30-Day Income Boosts, High-Income Skills, and Passive Digital Products*.
-* **🎯 Opportunities Radar:** AI-matched gigs and remote jobs scanning Upwork, Fiverr, LinkedIn, Devpost, Contra, and Wellfound.
-* **🗺️ 3-Phase Execution Roadmaps:** Step-by-step actionable roadmaps with free tool badges (`Figma`, `Canva`, `CapCut`, `GitHub`) and direct **YouTube masterclass tutorial links**.
-* **🔗 Curated Deep-Search Platform Links:** Query parameters constructed to direct users toward relevant filtered gig and opportunity searches across major platforms.
+* **5-Category Ideas Lab:** AI consultant tailored to your Design DNA for *Portfolio Projects, Hackathon Concepts, 30-Day Income Boosts, High-Income Skills, and Passive Digital Products*.
+* **Opportunities Radar:** AI-matched gigs and remote jobs scanning Upwork, Fiverr, LinkedIn, Devpost, Contra, and Wellfound.
+* **3-Phase Execution Roadmaps:** Step-by-step actionable roadmaps with free tool badges (`Figma`, `Canva`, `CapCut`, `GitHub`) and direct **YouTube masterclass tutorial links**.
+* **Curated Deep-Search Platform Links:** Query parameters constructed to direct users toward relevant filtered gig and opportunity searches across major platforms.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
 |---|---|
@@ -146,7 +146,7 @@ VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private
 
 ---
 
-## 🏛 Architecture
+## Architecture
 
 ```
                                     +-----------------------------------------+
@@ -186,7 +186,7 @@ VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 vaslkaar/
@@ -221,7 +221,7 @@ vaslkaar/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 * [Node.js](https://nodejs.org/) (version 18.0 or higher)
@@ -257,7 +257,7 @@ vaslkaar/
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 | Variable | Required | Description |
 |---|---|---|
@@ -275,7 +275,7 @@ Deploy directly to Vercel in seconds:
 
 ---
 
-## 🔒 Security
+## Security
 
 * **Client-Side Privacy First:** All user files, client databases, invoice records, and financial earnings are stored strictly in client-side `localStorage`. No sensitive client data is ever sold or permanently stored on external database servers.
 * **API Key Protection:** The Groq API key is stored securely in environment variables on the backend serverless layer (`api/generate.js` and `api/ideas.js`) and is never exposed to the client-side JavaScript bundle.
@@ -283,7 +283,7 @@ Deploy directly to Vercel in seconds:
 
 ---
 
-## ⚠️ Known Limitations
+## Known Limitations
 
 * **Browser-Only Storage:** All application data (Design DNA profiles, project records, client CRM details, invoices, and payment tracking) is stored exclusively in the browser's `localStorage`. Clearing browser cache or site data permanently removes saved items, and records do not sync across different browsers or devices.
 * **No Authentication or Cloud Sync:** VASLKAAR is an offline-first client app without a hosted user account system or centralized cloud database.
@@ -291,7 +291,7 @@ Deploy directly to Vercel in seconds:
 
 ---
 
-## 🤝 How to Contribute?
+## How to Contribute?
 
 Contributions, issues, and feature requests are welcome!
 
@@ -312,7 +312,7 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-## 🗺️ What's Next?
+## What's Next?
 
 - [ ] **v1.1 — Cloud Sync & Auth:** Optional Firebase Auth & Firestore cloud synchronization across multiple devices.
 - [ ] **v1.2 — Direct Social Publishing:** OAuth 2.0 direct publishing to LinkedIn Company Pages and Twitter/X threads.
@@ -322,13 +322,13 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for full details.
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 * **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a 4-member student team can rapidly prototype and ship a full-stack web application.
 * **[Groq Cloud](https://groq.com)** — For blazing-fast AI inference speeds powered by LPU technology (`openai/gpt-oss-120b`, `qwen/qwen3.6-27b`).
@@ -338,7 +338,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-## 👥 The Team
+## The Team
 
 Meet the 4 creators behind **VASLKAAR**:
 
@@ -352,6 +352,6 @@ Meet the 4 creators behind **VASLKAAR**:
 ---
 
 <div align="center">
-  <p>⭐ <em>"Discipline + Aesthetic Intuition + Consistent Execution = Impact"</em></p>
-  <p><strong>Proudly Built with ❤️ in Pakistan 🇵🇰</strong></p>
+  <p> <em>"Discipline + Aesthetic Intuition + Consistent Execution = Impact"</em></p>
+  <p><strong>Proudly Built in Pakistan</strong></p>
 </div>

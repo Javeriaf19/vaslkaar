@@ -79,7 +79,7 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log('');
   console.log('  ╔══════════════════════════════════════╗');
-  console.log('  ║  🚀 VASLKAAR Dev Server Running     ║');
+  console.log('  ║  VASLKAAR Dev Server Running     ║');
   console.log(`  ║  → http://localhost:${PORT}             ║`);
   console.log('  ║  Press Ctrl+C to stop                ║');
   console.log('  ╚══════════════════════════════════════╝');
