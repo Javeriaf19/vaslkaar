@@ -26,6 +26,7 @@
 ## 📑 Table of Contents
 
 - [About](#about)
+- [Screenshots](#screenshots)
 - [Features](#features)
   - [1. Creative Hub & Case Study Engine](#1-creative-hub--case-study-engine)
   - [2. 4-Slide Graphic & Document Studio](#2-4-slide-graphic--document-studio)
@@ -39,6 +40,7 @@
   - [Installation & Local Setup](#installation--local-setup)
 - [Configuration](#configuration)
 - [Security](#security)
+- [Known Limitations](#known-limitations)
 - [How to Contribute?](#how-to-contribute)
 - [What's Next?](#whats-next)
 - [License](#license)
@@ -66,7 +68,7 @@ We realized that millions of independent creators and freelancers across Pakista
 ---
 
 ### The Problem
-Freelancers currently waste 40%+ of their working hours context-switching between 6 different disconnected tools:
+In our experience, freelancers often lose substantial working time context-switching between 6 different disconnected tools:
 - **Case Studies & Portfolios:** Writing long Behance narratives and LinkedIn hooks manually.
 - **Graphic Design:** Spending hours recreating carousel slides in Canva or Figma.
 - **Client Management:** Losing track of leads across WhatsApp, Upwork, and Fiverr.
@@ -75,6 +77,19 @@ Freelancers currently waste 40%+ of their working hours context-switching betwee
 
 ### The VASLKAAR Solution
 VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private, lightning-fast workspace. Powered by Groq's high-speed LLM engine and client-side vector graphics rendering, VASLKAAR turns raw design screenshots into complete Behance case studies, LinkedIn posts, 4-slide carousel graphic decks, professional PDF invoices, and automated client reminders in seconds.
+
+---
+
+## 📸 Screenshots
+
+| Screen | Preview |
+|---|---|
+| **Creative Hub & Design DNA** | ![Design DNA](docs/screenshot-1.png) |
+| **AI Case Study & Output Generator** | ![Case Study Generator](docs/screenshot-2.png) |
+| **4-Slide Carousel Studio** | ![Carousel Studio](docs/screenshot-3.png) |
+| **Client CRM & Invoices** | ![CRM and Invoicing](docs/screenshot-4.png) |
+
+> *Note: Screenshot placeholders (`docs/screenshot-*.png`) are provided above for the owner to update with application visuals.*
 
 ---
 
@@ -110,7 +125,7 @@ VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private
 * **💡 5-Category Ideas Lab:** AI consultant tailored to your Design DNA for *Portfolio Projects, Hackathon Concepts, 30-Day Income Boosts, High-Income Skills, and Passive Digital Products*.
 * **🎯 Opportunities Radar:** AI-matched gigs and remote jobs scanning Upwork, Fiverr, LinkedIn, Devpost, Contra, and Wellfound.
 * **🗺️ 3-Phase Execution Roadmaps:** Step-by-step actionable roadmaps with free tool badges (`Figma`, `Canva`, `CapCut`, `GitHub`) and direct **YouTube masterclass tutorial links**.
-* **🔗 Verified Live Deep-Search URLs:** Zero broken or 404 links — every platform link leads directly to live filtered search results.
+* **🔗 Curated Deep-Search Platform Links:** Query parameters constructed to direct users toward relevant filtered gig and opportunity searches across major platforms.
 
 ---
 
@@ -264,7 +279,15 @@ Deploy directly to Vercel in seconds:
 
 * **Client-Side Privacy First:** All user files, client databases, invoice records, and financial earnings are stored strictly in client-side `localStorage`. No sensitive client data is ever sold or permanently stored on external database servers.
 * **API Key Protection:** The Groq API key is stored securely in environment variables on the backend serverless layer (`api/generate.js` and `api/ideas.js`) and is never exposed to the client-side JavaScript bundle.
-* **Zero Malicious Dependencies:** Clean, audit-free architecture built with zero heavy frameworks, eliminating client-side supply-chain attack vectors.
+* **Minimal Dependency Surface:** Lightweight architecture relying only on vetted, minimal dependencies (`dotenv` and `groq-sdk`) with vanilla JavaScript on the frontend to keep the external supply-chain footprint minimal.
+
+---
+
+## ⚠️ Known Limitations
+
+* **Browser-Only Storage:** All application data (Design DNA profiles, project records, client CRM details, invoices, and payment tracking) is stored exclusively in the browser's `localStorage`. Clearing browser cache or site data permanently removes saved items, and records do not sync across different browsers or devices.
+* **No Authentication or Cloud Sync:** VASLKAAR is an offline-first client app without a hosted user account system or centralized cloud database.
+* **AI Output Variability:** LLM outputs (case study drafts, social posts, gig recommendations, and roadmaps) are AI-generated and may occasionally contain hallucinations or outdated platform links. Always review generated outputs prior to publishing or client presentation.
 
 ---
 
@@ -307,7 +330,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## 🙏 Acknowledgements
 
-* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a 4-member student team can ship a full-stack, production-grade OS rapidly.
+* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a 4-member student team can rapidly prototype and ship a full-stack web application.
 * **[Groq Cloud](https://groq.com)** — For blazing-fast AI inference speeds powered by LPU technology (`openai/gpt-oss-120b`, `qwen/qwen3.6-27b`).
 * **[Lucide Icons](https://lucide.dev)** — For clean, modern UI iconography.
 * **[Tailwind CSS](https://tailwindcss.com)** — For the rapid, utility-first styling system.

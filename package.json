@@ -5,7 +5,8 @@
   "homepage": "https://vaslkaar.vercel.app",
   "private": true,
   "scripts": {
-    "dev": "vercel dev",
+    "start": "node server.js",
+    "dev": "node server.js",
     "deploy": "vercel --prod"
   },
   "dependencies": {
