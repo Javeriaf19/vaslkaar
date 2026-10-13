@@ -84,12 +84,10 @@ VASLKAAR bridges the entire creative-to-business lifecycle in a unified, private
 
 | Screen | Preview |
 |---|---|
-| **Creative Hub & Design DNA** | ![Design DNA](docs/screenshot-1.png) |
-| **AI Case Study & Output Generator** | ![Case Study Generator](docs/screenshot-2.png) |
-| **4-Slide Carousel Studio** | ![Carousel Studio](docs/screenshot-3.png) |
-| **Client CRM & Invoices** | ![CRM and Invoicing](docs/screenshot-4.png) |
-
-> *Note: Screenshot placeholders (`docs/screenshot-*.png`) are provided above for the owner to update with application visuals.*
+| **Dashboard & Project Overview** | ![Dashboard Overview](docs/screenshot-1.png) |
+| **AI Case Study & Social Output Generator** | ![Case Study Generator](docs/screenshot-2.png) |
+| **Creative Ideas Lab & Execution Roadmaps** | ![Ideas Lab](docs/screenshot-3.png) |
+| **Gig & Freelance Opportunities Radar** | ![Opportunities Radar](docs/screenshot-4.png) |
 
 ---
 
