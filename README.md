@@ -330,7 +330,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## Acknowledgements
 
-* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a 4-member student team can rapidly prototype and ship a full-stack web application.
+* **AI Pair Programming (Claude & Antigravity)** — Architected and developed using agentic AI workflows, demonstrating how a solo builder can rapidly prototype and ship a full-stack web application.
 * **[Groq Cloud](https://groq.com)** — For blazing-fast AI inference speeds powered by LPU technology (`openai/gpt-oss-120b`, `qwen/qwen3.6-27b`).
 * **[Lucide Icons](https://lucide.dev)** — For clean, modern UI iconography.
 * **[Tailwind CSS](https://tailwindcss.com)** — For the rapid, utility-first styling system.
@@ -338,16 +338,11 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-## The Team
+## Creator & Lead Architect
 
-Meet the 4 creators behind **VASLKAAR**:
-
-| Member | Role | Core Focus | GitHub Profile |
-|---|---|---|---|
-| **Javeria Farhan** | *Co-Founder & Lead Product Architect / UI Designer* | Product Vision, UI/UX Design System, 4-Slide Graphic Studio & Design DNA | [![GitHub](https://img.shields.io/badge/@Javeriaf19-black?style=flat&logo=github)](https://github.com/Javeriaf19) |
-| **Taha Jamshed** | *Co-Founder & Full-Stack Engineer* | Serverless Edge APIs, Architecture, System Integration & Deployment | [![GitHub](https://img.shields.io/badge/@tachiiB-black?style=flat&logo=github)](https://github.com/tachiiB) |
-| **Muhammad Subhan** | *AI Systems & Prompt Engineer* | Groq LPU Integration, JSON Parsing Engines & AI Roadmaps | [![GitHub](https://img.shields.io/badge/@MuhammadSubhan404x-black?style=flat&logo=github)](https://github.com/MuhammadSubhan404x) |
-| **Alisha Fatima** | *Frontend Engineer & QA / Growth Research* | Client CRM, Invoicing PDF Compiler, UI Testing & User Research | [![GitHub](https://img.shields.io/badge/@AlishaFatima16-black?style=flat&logo=github)](https://github.com/AlishaFatima16) |
+**Javeria Farhan** — Solo Creator, Product Architect & Designer
+* **Core Focus:** Product Vision, UI/UX Design System, 14-Screen Architecture, 4-Slide Graphic Studio, Design DNA, Groq LPU Integration, CRM & Invoice PDF Compiler.
+* **GitHub Profile:** [![GitHub](https://img.shields.io/badge/@Javeriaf19-black?style=flat&logo=github)](https://github.com/Javeriaf19)
 
 ---
 
