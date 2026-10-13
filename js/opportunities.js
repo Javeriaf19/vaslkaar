@@ -63,7 +63,7 @@ function displayOpportunities(data) {
   }
 
   const typeIcons = {
-    'Easy': '⚡', 'Medium': '🔥', 'Hard': '💎',
+    'Easy': 'Easy', 'Medium': 'Medium', 'Hard': 'Hard',
   };
 
   listEl.innerHTML = opps.map((opp, i) => {
@@ -79,20 +79,20 @@ function displayOpportunities(data) {
       <div class="flex flex-col sm:flex-row gap-4 justify-between">
         <div class="flex-1">
           <div class="flex items-center gap-2 mb-2">
-            <span class="text-lg">${typeIcons[opp.difficulty] || '📌'}</span>
+            <span class="text-lg">${opp.difficulty || 'Opportunity'}</span>
             <h3 class="font-heading font-semibold text-sm">${escapeHtml(opp.title || '')}</h3>
           </div>
           <p class="text-vasl-gray font-body text-sm mb-3 leading-relaxed">${escapeHtml(opp.description || '')}</p>
           <div class="flex flex-wrap gap-2 text-xs font-body mb-3">
             ${opp.earning ? `<span class="text-vasl-success font-heading font-semibold bg-vasl-success/10 px-2.5 py-0.5 rounded-full border border-vasl-success/20">${escapeHtml(opp.earning)}</span>` : ''}
-            ${opp.platform ? `<span class="text-vasl-gray bg-vasl-bg px-2 py-0.5 rounded-full border border-vasl-light-gray/40">📍 ${escapeHtml(opp.platform)}</span>` : ''}
-            ${opp.timeframe ? `<span class="text-vasl-gray bg-vasl-bg px-2 py-0.5 rounded-full border border-vasl-light-gray/40">⏱ ${escapeHtml(opp.timeframe)}</span>` : ''}
+            ${opp.platform ? `<span class="text-vasl-gray bg-vasl-bg px-2 py-0.5 rounded-full border border-vasl-light-gray/40">${escapeHtml(opp.platform)}</span>` : ''}
+            ${opp.timeframe ? `<span class="text-vasl-gray bg-vasl-bg px-2 py-0.5 rounded-full border border-vasl-light-gray/40">${escapeHtml(opp.timeframe)}</span>` : ''}
           </div>
 
           ${opp.action ? `
           <div class="bg-vasl-bg/70 rounded-input p-2.5 border border-vasl-light-gray/30 mb-2">
             <p class="text-xs font-body text-vasl-dark">
-              <span class="font-heading font-semibold text-vasl-gold">⚡ Action Step:</span> ${escapeHtml(opp.action)}
+              <span class="font-heading font-semibold text-vasl-gold">Action Step:</span> ${escapeHtml(opp.action)}
             </p>
           </div>` : ''}
         </div>
@@ -104,7 +104,7 @@ function displayOpportunities(data) {
           </a>
           ${hasRoadmap ? `
           <button onclick="toggleOppRoadmap(${i})" class="btn-outline text-xs py-1.5 px-3 font-heading font-medium whitespace-nowrap text-vasl-dark">
-            <span id="opp-roadmap-btn-text-${i}">🗺️ Roadmap</span>
+            <span id="opp-roadmap-btn-text-${i}">Roadmap</span>
           </button>
           ` : ''}
         </div>
@@ -156,7 +156,7 @@ function toggleOppRoadmap(index) {
     if (btnText) btnText.textContent = 'Hide Roadmap ▴';
   } else {
     container.classList.add('hidden');
-    if (btnText) btnText.textContent = '🗺️ Roadmap';
+    if (btnText) btnText.textContent = 'Roadmap';
   }
 
   if (typeof lucide !== 'undefined') lucide.createIcons();

@@ -39,7 +39,7 @@ function toggleVoiceInput(fieldId) {
                  field.parentElement?.querySelector('button[onclick*="toggleVoiceInput"]');
   if (micBtn) micBtn.classList.add('text-vasl-error', 'animate-pulse');
 
-  showToast('🎤 Listening... speak now');
+  showToast('Listening... speak now');
 
   voiceRecognition.onresult = (e) => {
     let transcript = '';
@@ -67,7 +67,7 @@ function toggleVoiceInput(fieldId) {
 
   voiceRecognition.onend = () => {
     stopVoice(micBtn);
-    showToast('🎤 Voice input saved ✓');
+    showToast('Voice input saved');
   };
 
   voiceRecognition.start();
@@ -134,7 +134,7 @@ function exportClientsCSV() {
   ]);
 
   downloadCSV('vaslkaar_clients.csv', headers, rows);
-  showToast('Clients exported to CSV ✓');
+  showToast('Clients exported to CSV');
 }
 
 function exportInvoicesCSV() {
@@ -150,7 +150,7 @@ function exportInvoicesCSV() {
   ]);
 
   downloadCSV('vaslkaar_invoices.csv', headers, rows);
-  showToast('Invoices exported to CSV ✓');
+  showToast('Invoices exported to CSV');
 }
 
 function exportPaymentsCSV() {
@@ -170,7 +170,7 @@ function exportPaymentsCSV() {
   });
 
   downloadCSV('vaslkaar_payments.csv', headers, rows);
-  showToast('Payments exported to CSV ✓');
+  showToast('Payments exported to CSV');
 }
 
 function downloadCSV(filename, headers, rows) {

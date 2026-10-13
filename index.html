@@ -6,36 +6,9 @@
   <title>VASLKAAR — Your work, connected.</title>
   <meta name="description" content="AI-Powered Freelancer OS — Auto-generate Behance case studies, LinkedIn posts, and SEO packages from your design work." />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'vasl-dark': '#1A1A1A',
-            'vasl-gold': '#C9A84C',
-            'vasl-gold-hover': '#B8963F',
-            'vasl-bg': '#FAFAFA',
-            'vasl-success': '#2D9E5F',
-            'vasl-warning': '#E8A020',
-            'vasl-error': '#D04040',
-            'vasl-gray': '#6B7280',
-            'vasl-light-gray': '#E5E7EB',
-            'vasl-card': '#FFFFFF',
-          },
-          fontFamily: {
-            'heading': ['"Inter"', 'system-ui', 'sans-serif'],
-            'body': ['"DM Sans"', 'system-ui', 'sans-serif'],
-          },
-          borderRadius: {
-            'card': '12px',
-            'input': '8px',
-          },
-        }
-      }
-    }
-  </script>
+  <script src="js/tailwind-config.js"></script>
 
   <!-- Google Fonts: Inter + DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -443,7 +416,7 @@
       <section id="screen-dashboard" class="app-screen p-6 md:p-10">
         <!-- Header -->
         <div class="mb-10">
-          <p class="text-vasl-gray font-body text-sm mb-1" id="dashboard-greeting">Good evening 👋</p>
+          <p class="text-vasl-gray font-body text-sm mb-1" id="dashboard-greeting">Good evening</p>
           <h1 class="font-heading font-bold text-2xl md:text-3xl">Dashboard</h1>
         </div>
 
@@ -598,7 +571,7 @@
                   </button>
                 </div>
                 <p id="description-error" class="text-vasl-error text-sm mt-1 hidden font-body">Please describe your project in detail.</p>
-                <p class="text-vasl-gray/50 text-xs font-body mt-1">💡 The more detail you give, the better AI writes your case study</p>
+                <p class="text-vasl-gray/50 text-xs font-body mt-1">The more detail you give, the better AI writes your case study</p>
               </div>
 
               <!-- Tools Used -->
@@ -650,7 +623,7 @@
               <button type="submit" id="generate-btn" class="btn-gold w-full py-4 font-heading font-semibold text-base flex items-center justify-center gap-3">
                 <span class="inline-flex items-center gap-2">
                   <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  Generate ✨
+                  Generate
                 </span>
               </button>
               <p class="text-center text-vasl-gray/60 text-xs font-body mt-3">AI will create your Behance case study, LinkedIn posts, and SEO package</p>
@@ -745,7 +718,7 @@
             </button>
             <button class="result-tab" data-tab="graphics" onclick="switchResultTab('graphics')">
               <i data-lucide="image" class="w-4 h-4 text-vasl-gold"></i>
-              🎨 Graphic Studio
+              Graphic Studio
             </button>
           </div>
 
@@ -960,16 +933,16 @@
                 <span class="text-xs font-heading font-semibold text-vasl-gray uppercase tracking-wider">Theme:</span>
                 <div class="flex gap-1 bg-vasl-bg p-1 rounded-input">
                   <button type="button" id="theme-gold-btn" class="graphic-theme-btn active px-3 py-1 rounded text-xs font-heading font-medium" onclick="setGraphicTheme('gold')">
-                    ✨ Gold
+                    Gold
                   </button>
                   <button type="button" id="theme-minimal-btn" class="graphic-theme-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicTheme('minimal')">
-                    ⚪ Minimal
+                    Minimal
                   </button>
                   <button type="button" id="theme-cyber-btn" class="graphic-theme-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicTheme('cyber')">
-                    🌌 Cyber
+                    Cyber
                   </button>
                   <button type="button" id="theme-emerald-btn" class="graphic-theme-btn px-3 py-1 rounded text-xs font-heading font-medium text-vasl-gray" onclick="setGraphicTheme('emerald')">
-                    🌿 Emerald
+                    Emerald
                   </button>
                 </div>
               </div>
@@ -988,16 +961,16 @@
               <div class="flex items-center gap-1.5 overflow-x-auto py-1">
                 <span class="text-xs font-heading font-semibold text-vasl-gray mr-2 uppercase tracking-wider">Slide Deck:</span>
                 <button type="button" id="slide-btn-1" class="graphic-slide-btn active px-3 py-1.5 rounded-lg text-xs font-heading font-semibold" onclick="selectGraphicSlide(1)">
-                  📑 1. Hook & Cover
+                  1. Hook & Cover
                 </button>
                 <button type="button" id="slide-btn-2" class="graphic-slide-btn px-3 py-1.5 rounded-lg text-xs font-heading font-semibold text-vasl-gray hover:bg-vasl-bg" onclick="selectGraphicSlide(2)">
-                  🔍 2. Strategy & Challenge
+                  2. Strategy & Challenge
                 </button>
                 <button type="button" id="slide-btn-3" class="graphic-slide-btn px-3 py-1.5 rounded-lg text-xs font-heading font-semibold text-vasl-gray hover:bg-vasl-bg" onclick="selectGraphicSlide(3)">
-                  🎨 3. Visuals & Deliverables
+                  3. Visuals & Deliverables
                 </button>
                 <button type="button" id="slide-btn-4" class="graphic-slide-btn px-3 py-1.5 rounded-lg text-xs font-heading font-semibold text-vasl-gray hover:bg-vasl-bg" onclick="selectGraphicSlide(4)">
-                  📈 4. Outcome & CTA
+                  4. Outcome & CTA
                 </button>
               </div>
               <button type="button" onclick="downloadFullCarouselDeck()" class="btn-outline py-1.5 px-3 text-xs font-heading font-semibold flex items-center gap-1.5 text-vasl-dark">
@@ -1531,7 +1504,7 @@
       <!-- ====================================================== -->
       <section id="screen-ideas" class="app-screen hidden p-6 md:p-10">
         <div class="mb-8">
-          <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">💡 Ideas Lab</h1>
+          <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Ideas Lab</h1>
           <p class="text-vasl-gray font-body text-sm">AI-powered ideas to grow your income and portfolio.</p>
         </div>
 
@@ -1539,7 +1512,7 @@
         <div id="ideas-categories" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <button onclick="generateIdeas('project-ideas')" class="idea-category-card bg-white rounded-card border border-vasl-light-gray/50 p-6 text-left hover:border-vasl-gold/50 hover:shadow-md transition-all group">
             <div class="w-12 h-12 bg-vasl-gold/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-vasl-gold/20 transition-colors">
-              <span class="text-2xl">🎨</span>
+              <span class="text-sm font-semibold text-vasl-gold">Projects</span>
             </div>
             <h3 class="font-heading font-semibold mb-1">Project Ideas</h3>
             <p class="text-vasl-gray text-xs font-body">Fresh portfolio project ideas matched to your style</p>
@@ -1547,7 +1520,7 @@
 
           <button onclick="generateIdeas('hackathon-ideas')" class="idea-category-card bg-white rounded-card border border-vasl-light-gray/50 p-6 text-left hover:border-vasl-gold/50 hover:shadow-md transition-all group">
             <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors">
-              <span class="text-2xl">🏆</span>
+              <span class="text-sm font-semibold text-vasl-gold">Hackathons</span>
             </div>
             <h3 class="font-heading font-semibold mb-1">Hackathon Ideas</h3>
             <p class="text-vasl-gray text-xs font-body">Winning ideas for design + tech hackathons</p>
@@ -1555,7 +1528,7 @@
 
           <button onclick="generateIdeas('income-boost')" class="idea-category-card bg-white rounded-card border border-vasl-light-gray/50 p-6 text-left hover:border-vasl-gold/50 hover:shadow-md transition-all group">
             <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-100 transition-colors">
-              <span class="text-2xl">💰</span>
+              <span class="text-sm font-semibold text-vasl-gold">Income</span>
             </div>
             <h3 class="font-heading font-semibold mb-1">Income Boost</h3>
             <p class="text-vasl-gray text-xs font-body">Earn more in the next 30 days — specific steps</p>
@@ -1563,7 +1536,7 @@
 
           <button onclick="generateIdeas('skill-growth')" class="idea-category-card bg-white rounded-card border border-vasl-light-gray/50 p-6 text-left hover:border-vasl-gold/50 hover:shadow-md transition-all group">
             <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-              <span class="text-2xl">📈</span>
+              <span class="text-sm font-semibold text-vasl-gold">Skills</span>
             </div>
             <h3 class="font-heading font-semibold mb-1">Skill Growth</h3>
             <p class="text-vasl-gray text-xs font-body">High-value skills to learn for more earnings</p>
@@ -1571,7 +1544,7 @@
 
           <button onclick="generateIdeas('passive-income')" class="idea-category-card bg-white rounded-card border border-vasl-light-gray/50 p-6 text-left hover:border-vasl-gold/50 hover:shadow-md transition-all group">
             <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-100 transition-colors">
-              <span class="text-2xl">🔄</span>
+              <span class="text-sm font-semibold text-vasl-gold">Products</span>
             </div>
             <h3 class="font-heading font-semibold mb-1">Passive Income</h3>
             <p class="text-vasl-gray text-xs font-body">Build once, earn repeatedly — digital products & more</p>
@@ -1603,7 +1576,7 @@
       <section id="screen-opportunities" class="app-screen hidden p-6 md:p-10">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">🎯 Opportunities</h1>
+            <h1 class="font-heading font-bold text-2xl md:text-3xl mb-1">Opportunities</h1>
             <p class="text-vasl-gray font-body text-sm">AI finds gigs, jobs, and hackathons matched to your skills.</p>
           </div>
           <button onclick="findOpportunities()" class="btn-gold py-2.5 px-5 text-sm font-heading font-medium flex items-center gap-2">
@@ -1615,22 +1588,22 @@
         <!-- Quick Platform Links -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
           <a href="https://www.fiverr.com/search/gigs?query=graphic+designer" target="_blank" class="bg-white rounded-card border border-vasl-light-gray/50 p-4 text-center hover:border-vasl-gold/40 hover:shadow-sm transition-all">
-            <span class="text-2xl block mb-2">🟢</span>
+            <span class="text-sm font-bold block mb-2 text-green-500">Fiverr</span>
             <p class="font-heading font-semibold text-xs">Fiverr</p>
             <p class="text-vasl-gray text-[10px] font-body">Browse gigs</p>
           </a>
           <a href="https://www.upwork.com/nx/search/jobs/?q=graphic+design" target="_blank" class="bg-white rounded-card border border-vasl-light-gray/50 p-4 text-center hover:border-vasl-gold/40 hover:shadow-sm transition-all">
-            <span class="text-2xl block mb-2">🟩</span>
+            <span class="text-sm font-bold block mb-2 text-emerald-600">Upwork</span>
             <p class="font-heading font-semibold text-xs">Upwork</p>
             <p class="text-vasl-gray text-[10px] font-body">Find jobs</p>
           </a>
           <a href="https://www.linkedin.com/jobs/search/?keywords=freelance%20designer" target="_blank" class="bg-white rounded-card border border-vasl-light-gray/50 p-4 text-center hover:border-vasl-gold/40 hover:shadow-sm transition-all">
-            <span class="text-2xl block mb-2">🔗</span>
+            <span class="text-sm font-bold block mb-2 text-blue-600">LinkedIn</span>
             <p class="font-heading font-semibold text-xs">LinkedIn</p>
             <p class="text-vasl-gray text-[10px] font-body">Remote jobs</p>
           </a>
           <a href="https://devpost.com/hackathons" target="_blank" class="bg-white rounded-card border border-vasl-light-gray/50 p-4 text-center hover:border-vasl-gold/40 hover:shadow-sm transition-all">
-            <span class="text-2xl block mb-2">🏆</span>
+            <span class="text-sm font-bold block mb-2 text-amber-500">Devpost</span>
             <p class="font-heading font-semibold text-xs">Devpost</p>
             <p class="text-vasl-gray text-[10px] font-body">Hackathons</p>
           </a>

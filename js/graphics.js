@@ -37,7 +37,7 @@ let GRAPHIC_STATE = {
       badge: '04 • RESULTS & OUTCOME',
       headline: 'Measurable Impact & Next Steps',
       sub: 'Full case study live on Behance. Available for freelance design contracts & creative direction.',
-      statNum: '🚀 High',
+      statNum: 'High',
       statLabel: 'Market Impact',
       author: '@vaslkaar.creative',
     }
@@ -202,7 +202,7 @@ function updateGraphicLive() {
 function resetGraphicDefaults() {
   if (APP.currentProject && APP.generatedResult) {
     initGraphicStudio(APP.currentProject, APP.generatedResult);
-    showToast('Slide deck reset to original ✨');
+    showToast('Slide deck reset to original');
   }
 }
 
@@ -317,7 +317,7 @@ function renderGraphicArtboard() {
           <span style="font-size:11px; font-weight:700; color:${themeStyles.badgeText}; display:block;">Ready for collaboration?</span>
           <span style="font-size:10px; color:${themeStyles.subColor};">Connect on LinkedIn or Behance</span>
         </div>
-        <span style="font-size:14px;">🤝</span>
+        <span style="font-size:14px;">Direct</span>
       </div>
     `;
   }
@@ -386,7 +386,7 @@ async function downloadGraphicPNG() {
   try {
     if (btn) {
       btn.disabled = true;
-      btn.innerHTML = '<span class="animate-spin mr-1">⏳</span> Exporting...';
+      btn.innerHTML = '<span class="animate-spin mr-1"></span> Exporting...';
     }
 
     const canvas = await html2canvas(artboard, {
@@ -412,9 +412,7 @@ async function downloadGraphicPNG() {
     link.click();
     document.body.removeChild(link);
 
-    showToast(`Slide ${GRAPHIC_STATE.currentSlide} exported in 2x High-Res! 🖼️✨`);
-  } catch (e) {
-    console.error('Export failed:', e);
+    showToast(`Slide ${GRAPHIC_STATE.currentSlide} exported in 2x High-Res!'Export failed:', e);
     showToast('Failed to export slide');
   } finally {
     if (btn) {
@@ -432,7 +430,7 @@ async function downloadFullCarouselDeck() {
     return;
   }
 
-  showToast('📦 Exporting all 4 carousel slides...');
+  showToast('Exporting all 4 carousel slides...');
   const initialSlide = GRAPHIC_STATE.currentSlide;
 
   for (let s = 1; s <= 4; s++) {
@@ -465,5 +463,5 @@ async function downloadFullCarouselDeck() {
 
   // Restore initial slide
   selectGraphicSlide(initialSlide);
-  showToast('🎉 All 4 Carousel Deck slides exported successfully!');
+  showToast('All 4 Carousel Deck slides exported successfully!');
 }

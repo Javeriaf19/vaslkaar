@@ -1,6 +1,6 @@
-# 📄 Product Requirements Document (PRD)
+# Product Requirements Document (PRD)
 
-# 🌟 VASLKAAR — The All-In-One AI Freelancer OS
+# VASLKAAR — The All-In-One AI Freelancer OS
 > **Connect Your Creative Work to Real Business Impact.**
 
 ---
@@ -31,13 +31,13 @@ Independent creators currently waste over **40% of their billable hours** contex
 
 ## 3. Market Opportunity & Industry Analysis
 
-### 📊 Total Addressable Market (TAM / SAM / SOM)
+### Total Addressable Market (TAM / SAM / SOM)
 
 * **TAM ($674 Billion — Global Gig Economy):** The total global market value of the gig and freelance economy in 2026.
 * **SAM ($9.9 Billion — Freelance SaaS & Creator Tools):** The software market dedicated to freelance project management, invoicing, and portfolio tooling (growing at **18.6% CAGR**).
 * **SOM (24% — South Asian Creator Market):** Over **24% of the world's online freelance workforce** resides in South Asia (Pakistan, India, Bangladesh). VASLKAAR begins on this home turf where creative and digital disciplines represent the fastest-growing export category.
 
-### 📈 Industry Drivers & Macro Trends
+### Industry Drivers & Macro Trends
 1. **1.57 Billion Freelancers Globally:** Approximately **47% of the global workforce** now engages in freelance or independent contract work.
 2. **AI-Driven Solo-Agencies:** Independent creators are scaling into solo agencies, demanding unified operating software instead of disconnected point solutions.
 3. **Privacy & Data Sovereignty:** Freelancers refuse to store sensitive client pricing, WhatsApp leads, and contracts on insecure third-party cloud databases.
@@ -48,13 +48,13 @@ Independent creators currently waste over **40% of their billable hours** contex
 
 ```
 +-----------------------------------------------------------------------------------+
-|                        THE CURRENT FRAGMENTED REALITY                             |
+| THE CURRENT FRAGMENTED REALITY |
 +-----------------------------------------------------------------------------------+
-|  [Behance / Notion]  -->  [Canva / Figma]  -->  [WhatsApp]  -->  [Excel / Word]   |
-|   Case Study Copy         Slide Design           Client Chats     Manual Invoices  |
-|                                                                                   |
-|  * 40% Time Lost          * 70% Unshared Work   * Unorganized    * Unpaid & Lost  |
-|    in Context Switch        due to Fatigue        Pipelines        Balances       |
+| [Behance / Notion] --> [Canva / Figma] --> [WhatsApp] --> [Excel / Word] |
+| Case Study Copy Slide Design Client Chats Manual Invoices |
+| |
+| * 40% Time Lost * 70% Unshared Work * Unorganized * Unpaid & Lost |
+| in Context Switch due to Fatigue Pipelines Balances |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -70,13 +70,13 @@ Independent creators currently waste over **40% of their billable hours** contex
 
 | Feature / Capability | Generic Stack (Notion + Canva + QuickBooks) | Freelance Marketplaces (Upwork / Fiverr) | **VASLKAAR OS** |
 |---|:---:|:---:|:---:|
-| **Purpose-Built for Creative Freelancers** | ❌ Generic | ❌ Platform Locked | **✅ YES (11+ Disciplines)** |
-| **AI Case Studies & LinkedIn Hooks** | ❌ Manual | ❌ None | **✅ YES (Groq 120B Engine)** |
-| **Automated 4-Slide Carousel Deck Studio** | ❌ Requires Manual Design | ❌ None | **✅ YES (2.5x Retina Export)** |
-| **Client CRM & 1-Click WhatsApp Invoicing** | ⚠️ Requires 3 Subscriptions | ❌ None (High 20% Fees) | **✅ YES (Zero-Fee Vector PDFs)** |
-| **100% Client-Side Privacy (Zero DB Leakage)** | ❌ Cloud Stored | ❌ Monitored | **✅ YES (Browser LocalStorage)** |
-| **100% Verified Gig Radar + Roadmaps** | ❌ None | ⚠️ Search Only | **✅ YES (Direct Query Mappings)** |
-| **Unified Single Workflow** | ❌ 6 Logins | ❌ Marketplace Only | **✅ YES (1-Click Unified Flow)** |
+| **Purpose-Built for Creative Freelancers** | Generic | Platform Locked | ** YES (11+ Disciplines)** |
+| **AI Case Studies & LinkedIn Hooks** | Manual | None | ** YES (Groq 120B Engine)** |
+| **Automated 4-Slide Carousel Deck Studio** | Requires Manual Design | None | ** YES (2.5x Retina Export)** |
+| **Client CRM & 1-Click WhatsApp Invoicing** | ️ Requires 3 Subscriptions | None (High 20% Fees) | ** YES (Zero-Fee Vector PDFs)** |
+| **100% Client-Side Privacy (Zero DB Leakage)** | Cloud Stored | Monitored | ** YES (Browser LocalStorage)** |
+| **100% Verified Gig Radar + Roadmaps** | None | ️ Search Only | ** YES (Direct Query Mappings)** |
+| **Unified Single Workflow** | 6 Logins | Marketplace Only | ** YES (1-Click Unified Flow)** |
 
 ---
 
@@ -84,7 +84,7 @@ Independent creators currently waste over **40% of their billable hours** contex
 
 | Persona | Demographics & Discipline | Core Friction Point | VASLKAAR Solution |
 |---|---|---|---|
-| **Ayesha (22)** | Brand Identity & UI/UX Designer | Finishes high-end design assets at 2 AM but has zero energy to write 1,000-word Behance case studies. | Upload screenshots ➔ 1-Click Behance Case Study + 4-Slide High-Res Carousel PNGs. |
+| **Ayesha (22)** | Brand Identity & UI/UX Designer | Finishes high-end design assets at 2 AM but has zero energy to write 1,000-word Behance case studies. | Upload screenshots 1-Click Behance Case Study + 4-Slide High-Res Carousel PNGs. |
 | **Hamza (25)** | Freelance Video Editor & Motion Artist | Juggles multiple international clients on WhatsApp with unorganized billing and overdue balances. | Client CRM with status badges + 1-Click WhatsApp Invoicing with auto-calculated vector PDFs. |
 | **Sarah (20)** | Junior Creative & SE Student | Wants to break into high-paying freelance gigs but lacks structured execution roadmaps. | Ideas Lab with 3-Phase Execution Roadmaps + 100% verified deep-search platform URLs. |
 
@@ -94,42 +94,42 @@ Independent creators currently waste over **40% of their billable hours** contex
 
 ```
 +-----------------------------------------------------------------------------------+
-|                                 VASLKAAR ECOSYSTEM                                |
+| VASLKAAR ECOSYSTEM |
 +-----------------------------------------------------------------------------------+
-|  1. CREATIVE HUB      |  2. GRAPHIC STUDIO   |  3. BUSINESS SUITE | 4. GROWTH LAB |
-|  - Design DNA Profile |  - 4-Slide Carousels |  - Client CRM      | - Ideas Lab   |
-|  - Behance Case Study |  - 3 Ratios (1:1/4:5)|  - Vector PDF Bills| - Gig Radar   |
-|  - 3 LinkedIn Formats |  - 4 Luxury Themes   |  - Payment Tracker | - 3-Phase Plan|
-|  - Palette Extraction |  - 2.5x Retina PNGs  |  - WhatsApp Chat   | - Verified URL|
+| 1. CREATIVE HUB | 2. GRAPHIC STUDIO | 3. BUSINESS SUITE | 4. GROWTH LAB |
+| - Design DNA Profile | - 4-Slide Carousels | - Client CRM | - Ideas Lab |
+| - Behance Case Study | - 3 Ratios (1:1/4:5)| - Vector PDF Bills| - Gig Radar |
+| - 3 LinkedIn Formats | - 4 Luxury Themes | - Payment Tracker | - 3-Phase Plan|
+| - Palette Extraction | - 2.5x Retina PNGs | - WhatsApp Chat | - Verified URL|
 +-----------------------------------------------------------------------------------+
 ```
 
-### 🎨 Module 1: Creative Hub & Copy Engine
+### Module 1: Creative Hub & Copy Engine
 * **FR-1.1: Design DNA Profiling:** Supports 11+ creative professions, customizable aesthetic styles, and native generation in 7 languages (English, Urdu, Hindi, Punjabi, French, Arabic, Spanish).
 * **FR-1.2: HTML5 Canvas Color Extraction:** Automatically samples uploaded project screenshots to compute dominant brand color hex codes.
 * **FR-1.3: Web Speech API Input:** Allows voice-to-text dictation for project descriptions.
 * **FR-1.4: Multi-Format Copy Output:**
-  * Complete Behance Case Study (Overview, Challenge, Process, Solution, Tags, Description).
-  * 3 LinkedIn Post Formats (Short <150 chars, Medium ~300 chars, Long ~500 chars with hashtags).
-  * 1-Click "Share to LinkedIn" Composer integration and Behance Creator launch.
-  * SEO Package with Alt-Texts, Meta Descriptions, and Keywords.
+ * Complete Behance Case Study (Overview, Challenge, Process, Solution, Tags, Description).
+ * 3 LinkedIn Post Formats (Short <150 chars, Medium ~300 chars, Long ~500 chars with hashtags).
+ * 1-Click "Share to LinkedIn" Composer integration and Behance Creator launch.
+ * SEO Package with Alt-Texts, Meta Descriptions, and Keywords.
 
-### 🖼️ Module 2: 4-Slide Graphic & Document Studio
+### ️ Module 2: 4-Slide Graphic & Document Studio
 * **FR-2.1: Multi-Slide Carousel Architecture:**
-  * **Slide 1:** Hook & Cover (Title, Extracted Palette Dots, Brandmark).
-  * **Slide 2:** The Challenge & Strategic Narrative.
-  * **Slide 3:** Deliverables & Design Tools Used (Figma, Photoshop, etc.).
-  * **Slide 4:** Measurable Impact, Key Metrics & Author Call-to-Action.
-* **FR-2.2: Dynamic Ratios & Theming:** Supports 1:1 Square, 4:5 Portrait (Carousel), and 16:9 Banner across 4 themes (*✨ Dark Gold, ⚪ Minimal, 🌌 Cyber, 🌿 Emerald*).
+ * **Slide 1:** Hook & Cover (Title, Extracted Palette Dots, Brandmark).
+ * **Slide 2:** The Challenge & Strategic Narrative.
+ * **Slide 3:** Deliverables & Design Tools Used (Figma, Photoshop, etc.).
+ * **Slide 4:** Measurable Impact, Key Metrics & Author Call-to-Action.
+* **FR-2.2: Dynamic Ratios & Theming:** Supports 1:1 Square, 4:5 Portrait (Carousel), and 16:9 Banner across 4 themes (* Dark Gold, Minimal, Cyber, Emerald*).
 * **FR-2.3: High-Res Rasterization:** Exports single slides or full 4-slide carousel decks sequentially in 2.5x Retina PNG resolution using `html2canvas`.
 
-### 💼 Module 3: Business Suite (CRM, Invoices, Payments)
+### Module 3: Business Suite (CRM, Invoices, Payments)
 * **FR-3.1: Client CRM:** Tracks leads and active clients with status indicators (*Active, On-Hold, Completed, Problem*), notes, and direct `wa.me` WhatsApp messaging.
 * **FR-3.2: Automated Vector Invoices:** Multi-currency calculations (`PKR`, `USD`, `EUR`, `GBP`), dynamic line-item addition/deletion, auto-numbering (`INV-001`), and instant client-side vector PDF compilation (`jsPDF`).
 * **FR-3.3: Payment Health Tracker:** Live dashboard summarizing Total Earned, Pending Balances, and Overdue Accounts with automated polite WhatsApp reminder triggers.
 * **FR-3.4: CSV Ledger Export:** 1-click export of CRM records and financial transactions for external bookkeeping.
 
-### 🚀 Module 4: Growth Engine (Ideas Lab & Live Opportunities)
+### Module 4: Growth Engine (Ideas Lab & Live Opportunities)
 * **FR-4.1: 5-Category AI Advisor:** Generates bespoke ideas for *Portfolio Projects, Hackathon Concepts, 30-Day Income Boosts, High-Income Skills, and Passive Digital Products*.
 * **FR-4.2: 100% Verified Deep-Search URLs:** Maps AI recommendations directly to active search query endpoints on Upwork, Fiverr, LinkedIn (24h remote), and Devpost with zero 404 errors.
 * **FR-4.3: 3-Phase Actionable Roadmaps:** Step-by-step breakdown (Phase 1 Setup, Phase 2 Build, Phase 3 Pitch) with free tool stacks (`Figma`, `Canva`, `CapCut`, `GitHub`) and curated YouTube masterclass learning links.
@@ -139,22 +139,22 @@ Independent creators currently waste over **40% of their billable hours** contex
 ## 8. Technical Architecture & System Design
 
 ```
-                              [ User Browser (Client-Side) ]
-                                            |
-              +-----------------------------+-----------------------------+
-              |                             |                             |
-              v                             v                             v
-     [ Single Page UI ]            [ Client Vector Engine ]      [ Storage Engine ]
-  (HTML5, Tailwind, JS ES6+)    (html2canvas PNGs, jsPDF Bills)   (Browser LocalStorage)
-              |
-              +-----------------------------> [ Vercel Serverless Edge API ]
-                                                            |
-                                                            v
-                                                  [ Groq Cloud LPU ]
-                                           (openai/gpt-oss-120b & qwen3.6-27b)
-                                                            |
-                                                            v
-                                            [ Auto-Repair JSON Parser ]
+ [ User Browser (Client-Side) ]
+ |
+ +-----------------------------+-----------------------------+
+ | | |
+ v v v
+ [ Single Page UI ] [ Client Vector Engine ] [ Storage Engine ]
+ (HTML5, Tailwind, JS ES6+) (html2canvas PNGs, jsPDF Bills) (Browser LocalStorage)
+ |
+ +-----------------------------> [ Vercel Serverless Edge API ]
+ |
+ v
+ [ Groq Cloud LPU ]
+ (openai/gpt-oss-120b & qwen3.6-27b)
+ |
+ v
+ [ Auto-Repair JSON Parser ]
 ```
 
 | Layer | Component | Technical Implementation |
@@ -213,6 +213,6 @@ VASLKAAR operates on a sustainable, creator-friendly **Freemium SaaS** model:
 ---
 
 <div align="center">
-  <p><strong>VASLKAAR — Your Work, Connected.</strong></p>
-  <p><em>Built with ❤️ by Javeria Farhan, Taha Jamshed, Muhammad Subhan, and Alisha Fatima.</em></p>
+ <p><strong>VASLKAAR — Your Work, Connected.</strong></p>
+ <p><em>Built with ️ by Javeria Farhan, Taha Jamshed, Muhammad Subhan, and Alisha Fatima.</em></p>
 </div>

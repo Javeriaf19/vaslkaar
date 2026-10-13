@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (editId) {
         updateClient(editId, clientData);
-        showToast('Client updated! ✓');
+        showToast('Client updated!');
       } else {
         saveClientToStorage(clientData);
-        showToast('Client added! ✓');
+        showToast('Client added!');
       }
 
       closeClientModal();
@@ -130,15 +130,15 @@ function renderClientList() {
   };
 
   const platformIcons = {
-    'fiverr': '🟢', 'upwork': '🟩', 'direct': '🤝', 'job': '💼',
-    'linkedin': '🔗', 'referral': '📣', 'other': '📌'
+    'fiverr': 'Fiverr', 'upwork': 'Upwork', 'direct': 'Direct', 'job': 'Job Board',
+    'linkedin': 'LinkedIn', 'referral': 'Referral', 'other': 'Other'
   };
 
   list.innerHTML = clients.map(c => `
     <div class="bg-white rounded-card border border-vasl-light-gray/50 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-vasl-gold/30 transition-colors">
       <div class="flex items-center gap-4 flex-1">
         <div class="w-10 h-10 bg-vasl-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-          <span class="text-lg">${platformIcons[c.platform] || '👤'}</span>
+          <span class="text-lg">${platformIcons[c.platform] || 'Client'}</span>
         </div>
         <div class="flex-1 min-w-0">
           <h3 class="font-heading font-semibold text-sm">${escapeHtml(c.name)}</h3>
@@ -167,7 +167,7 @@ function renderClientList() {
 
 function chatClientWhatsApp(contact, clientName) {
   const phone = contact.replace(/[^0-9+]/g, '');
-  const greeting = encodeURIComponent(`Hi ${clientName}! 👋 Reaching out from VASLKAAR regarding our current project.`);
+  const greeting = encodeURIComponent(`Hi ${clientName}! Reaching out from VASLKAAR regarding our current project.`);
   const url = phone ? `https://wa.me/${phone}?text=${greeting}` : `https://wa.me/?text=${greeting}`;
   window.open(url, '_blank');
 }

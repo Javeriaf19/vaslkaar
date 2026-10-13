@@ -108,11 +108,11 @@ function displayIdeasResults(data, category) {
   resultsEl.classList.remove('hidden');
 
   const categoryTitles = {
-    'project-ideas': '🎨 Project Ideas & Portfolios',
-    'hackathon-ideas': '🏆 Winning Hackathon Concepts',
-    'income-boost': '💰 30-Day Income Boost Roadmap',
-    'skill-growth': '📈 High-Income Skills Roadmap',
-    'passive-income': '🔄 Digital Products & Passive Income',
+    'project-ideas': 'Project Ideas & Portfolios',
+    'hackathon-ideas': 'Winning Hackathon Concepts',
+    'income-boost': '30-Day Income Boost Roadmap',
+    'skill-growth': 'High-Income Skills Roadmap',
+    'passive-income': 'Digital Products & Passive Income',
   };
 
   titleEl.textContent = data.title || categoryTitles[category] || 'Growth Lab';
@@ -149,15 +149,15 @@ function displayIdeasResults(data, category) {
       
       <!-- Meta Badges -->
       <div class="flex flex-wrap items-center gap-2 text-xs font-body mb-4">
-        ${idea.timeframe ? `<span class="bg-vasl-bg px-2.5 py-1 rounded-md text-vasl-gray">⏱ ${escapeHtml(idea.timeframe)}</span>` : ''}
-        ${idea.platform ? `<span class="bg-vasl-bg px-2.5 py-1 rounded-md text-vasl-gray">📍 ${escapeHtml(idea.platform)}</span>` : ''}
+        ${idea.timeframe ? `<span class="bg-vasl-bg px-2.5 py-1 rounded-md text-vasl-gray">${escapeHtml(idea.timeframe)}</span>` : ''}
+        ${idea.platform ? `<span class="bg-vasl-bg px-2.5 py-1 rounded-md text-vasl-gray">${escapeHtml(idea.platform)}</span>` : ''}
       </div>
 
       <!-- Action Box -->
       ${idea.action ? `
       <div class="bg-vasl-bg/70 rounded-input p-3 border border-vasl-light-gray/40 mb-4">
         <p class="text-xs font-body text-vasl-dark">
-          <span class="font-heading font-bold text-vasl-gold">⚡ First Step Today:</span> ${escapeHtml(idea.action)}
+          <span class="font-heading font-bold text-vasl-gold">First Step Today:</span> ${escapeHtml(idea.action)}
         </p>
       </div>` : ''}
 
@@ -167,7 +167,7 @@ function displayIdeasResults(data, category) {
           ${hasRoadmap ? `
           <button type="button" onclick="toggleIdeaRoadmap(${i})" class="btn-outline py-1.5 px-3 text-xs font-heading font-semibold flex items-center gap-1.5 text-vasl-dark">
             <i data-lucide="map" class="w-3.5 h-3.5 text-vasl-gold"></i>
-            <span id="roadmap-btn-text-${i}">🗺️ View Step-by-Step Roadmap</span>
+            <span id="roadmap-btn-text-${i}">View Step-by-Step Roadmap</span>
           </button>
           ` : ''}
         </div>
@@ -185,7 +185,7 @@ function displayIdeasResults(data, category) {
       <div id="idea-roadmap-${i}" class="hidden mt-5 pt-4 border-t border-dashed border-vasl-light-gray/80 space-y-4">
         <div class="flex items-center justify-between">
           <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-vasl-gold flex items-center gap-1.5">
-            <span>🗺️ Execution Roadmap & Real Resources</span>
+            <span>Execution Roadmap & Real Resources</span>
           </h4>
           <button onclick="copyRoadmapText(${i})" class="text-xs text-vasl-gray hover:text-vasl-dark font-body flex items-center gap-1">
             <i data-lucide="copy" class="w-3 h-3"></i> Copy Plan
@@ -262,7 +262,7 @@ function toggleIdeaRoadmap(index) {
     if (btnText) btnText.textContent = 'Hide Roadmap ▴';
   } else {
     container.classList.add('hidden');
-    if (btnText) btnText.textContent = '🗺️ View Step-by-Step Roadmap';
+    if (btnText) btnText.textContent = 'View Step-by-Step Roadmap';
   }
 
   if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -275,23 +275,23 @@ function copyRoadmapText(index) {
 
   const r = idea.roadmap || {};
   const text = [
-    `🗺️ ROADMAP: ${idea.title}`,
+    `ROADMAP: ${idea.title}`,
     `Potential Earning: ${idea.earning || 'N/A'} | Difficulty: ${idea.difficulty || 'Medium'}`,
     '',
-    `📌 ${r.phase1?.title || 'Phase 1: Setup'}`,
+    `${r.phase1?.title || 'Phase 1: Setup'}`,
     (r.phase1?.steps || []).map(s => `• ${s}`).join('\n'),
     `Free Tools: ${(r.phase1?.freeTools || []).join(', ')}`,
     '',
-    `📌 ${r.phase2?.title || 'Phase 2: Build'}`,
+    `${r.phase2?.title || 'Phase 2: Build'}`,
     (r.phase2?.steps || []).map(s => `• ${s}`).join('\n'),
     '',
-    `📌 ${r.phase3?.title || 'Phase 3: Monetize'}`,
+    `${r.phase3?.title || 'Phase 3: Monetize'}`,
     (r.phase3?.steps || []).map(s => `• ${s}`).join('\n'),
     `Target: ${idea.platform || 'Freelance Platform'}`,
   ].join('\n');
 
   copyToClipboard(text);
-  showToast('Roadmap copied to clipboard! 📋✨');
+  showToast('Roadmap copied to clipboard!');
 }
 
 // ---- Hide Results / Back to Categories ---- //

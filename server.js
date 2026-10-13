@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // MIME types
 const MIME = {
@@ -79,7 +79,7 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log('');
   console.log('  ╔══════════════════════════════════════╗');
-  console.log('  ║  🚀 VASLKAAR Dev Server Running     ║');
+  console.log('  ║  VASLKAAR Dev Server Running     ║');
   console.log(`  ║  → http://localhost:${PORT}             ║`);
   console.log('  ║  Press Ctrl+C to stop                ║');
   console.log('  ╚══════════════════════════════════════╝');

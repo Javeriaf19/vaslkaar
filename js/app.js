@@ -128,7 +128,7 @@ function showToast(message, duration = 2000) {
 function copyToClipboard(text) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
-      showToast('Copied to clipboard! ✓');
+      showToast('Copied to clipboard!');
     }).catch(() => {
       fallbackCopy(text);
     });
@@ -146,7 +146,7 @@ function fallbackCopy(text) {
   textarea.select();
   try {
     document.execCommand('copy');
-    showToast('Copied to clipboard! ✓');
+    showToast('Copied to clipboard!');
   } catch (e) {
     showToast('Failed to copy');
   }
@@ -157,10 +157,10 @@ function fallbackCopy(text) {
 function updateGreeting() {
   const hour = new Date().getHours();
   let greeting;
-  if (hour < 12) greeting = 'Good morning ☀️';
-  else if (hour < 17) greeting = 'Good afternoon 👋';
-  else if (hour < 21) greeting = 'Good evening 🌙';
-  else greeting = 'Working late? 🦉';
+  if (hour < 12) greeting = 'Good morning';
+  else if (hour < 17) greeting = 'Good afternoon';
+  else if (hour < 21) greeting = 'Good evening';
+  else greeting = 'Working late?';
 
   const el = document.getElementById('dashboard-greeting');
   if (el) el.textContent = greeting;
@@ -211,7 +211,7 @@ function initApp() {
     lucide.createIcons();
   }
 
-  console.log('%c VASLKAAR ', 'background: #1A1A1A; color: #C9A84C; font-size: 14px; font-weight: bold; padding: 4px 8px; border-radius: 4px;', 'Your work, connected. ✨');
+  console.log('%c VASLKAAR ', 'background: #1A1A1A; color: #C9A84C; font-size: 14px; font-weight: bold; padding: 4px 8px; border-radius: 4px;', 'Your work, connected. ');
 }
 
 // ---- Skip DNA Setup ---- //

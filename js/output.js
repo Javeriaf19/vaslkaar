@@ -156,7 +156,7 @@ function saveCurrentProject() {
 
   const saved = saveProject(project);
   if (saved) {
-    showToast('Project saved! ✨');
+    showToast('Project saved!');
     // Update button
     const btn = document.getElementById('save-project-btn');
     if (btn) {
@@ -179,7 +179,7 @@ function shareToLinkedIn(elementId) {
   }
 
   copyToClipboard(text);
-  showToast('Post copied! Opening LinkedIn Composer... 🚀');
+  showToast('Post copied! Opening LinkedIn Composer...');
 
   setTimeout(() => {
     window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank');

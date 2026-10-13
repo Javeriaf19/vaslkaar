@@ -67,8 +67,8 @@ function renderPaymentDashboard() {
       </div>
       ${!isPaid ? `
       <div class="flex items-center gap-1 flex-shrink-0">
-        <button onclick="markInvoicePaid('${inv.id}'); renderPaymentDashboard()" class="text-xs font-heading text-vasl-success hover:underline px-2 py-1" title="Mark as paid">✓ Paid</button>
-        <button onclick="generateReminder('${inv.id}')" class="text-xs font-heading text-vasl-warning hover:underline px-2 py-1" title="Send reminder">📩 Remind</button>
+        <button onclick="markInvoicePaid('${inv.id}'); renderPaymentDashboard()" class="text-xs font-heading text-vasl-success hover:underline px-2 py-1" title="Mark as paid"> Paid</button>
+        <button onclick="generateReminder('${inv.id}')" class="text-xs font-heading text-vasl-warning hover:underline px-2 py-1" title="Send reminder"> Remind</button>
       </div>` : ''}
     </div>`;
   }).join('');
@@ -86,9 +86,9 @@ function generateReminder(invoiceId) {
 
   let message;
   if (isOverdue) {
-    message = `Hi ${inv.clientName}, I hope you're doing well! Just a gentle reminder that invoice ${inv.number} for ${sym} ${Number(inv.total).toLocaleString()} was due on ${formatDate(inv.dueDate)}. Could you kindly process the payment at your earliest convenience? Thank you so much! 🙏`;
+    message = `Hi ${inv.clientName}, I hope you're doing well! Just a gentle reminder that invoice ${inv.number} for ${sym} ${Number(inv.total).toLocaleString()} was due on ${formatDate(inv.dueDate)}. Could you kindly process the payment at your earliest convenience? Thank you so much! `;
   } else {
-    message = `Hi ${inv.clientName}! Just a friendly heads up — invoice ${inv.number} for ${sym} ${Number(inv.total).toLocaleString()} is due on ${formatDate(inv.dueDate)}. Let me know if you need any details. Thanks! 😊`;
+    message = `Hi ${inv.clientName}! Just a friendly heads up — invoice ${inv.number} for ${sym} ${Number(inv.total).toLocaleString()} is due on ${formatDate(inv.dueDate)}. Let me know if you need any details. Thanks! `;
   }
 
   // Copy to clipboard
@@ -100,7 +100,7 @@ function generateReminder(invoiceId) {
     ? `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
     : `https://wa.me/?text=${encodeURIComponent(message)}`;
 
-  if (confirm('Reminder copied to clipboard! ✓\n\nOpen WhatsApp to send it?')) {
+  if (confirm('Reminder copied to clipboard!\n\nOpen WhatsApp to send it?')) {
     window.open(url, '_blank');
   }
 }
